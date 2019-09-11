@@ -1,0 +1,3 @@
+C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\FPSGame.Build.cs
+C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame.Target.cs
+C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGameEditor.Target.cs
