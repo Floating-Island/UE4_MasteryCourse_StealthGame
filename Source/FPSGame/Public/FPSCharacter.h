@@ -1,4 +1,4 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+ // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -50,7 +50,7 @@ public:
 	UAnimSequence* FireAnimation;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
-		bool isCarryingObjective;
+	bool isCarryingObjective;
 
 	void overlapsWithObjective(AFPSObjectiveActor* theObjective);
 

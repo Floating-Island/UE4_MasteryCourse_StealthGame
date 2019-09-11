@@ -8,6 +8,7 @@
 #include <Kismet/GameplayStatics.h>
 #include "FPSCharacter.h"
 
+
 // Sets default values
 AFPSObjectiveActor::AFPSObjectiveActor()
 {
