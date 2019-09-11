@@ -28,9 +28,14 @@ protected:
 	USphereComponent* sphereComp;//to be able to apply to it collission
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+	UParticleSystem* PickupFX;
+	void playEffect();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+
 
 };
