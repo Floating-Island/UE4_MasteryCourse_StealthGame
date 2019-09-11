@@ -32,7 +32,7 @@ protected:
 	UParticleSystem* PickupFX;
 	void playEffect();
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
