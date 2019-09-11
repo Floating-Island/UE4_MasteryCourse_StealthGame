@@ -42,7 +42,7 @@ void AFPSObjectiveActor::NotifyActorBeginOverlap(AActor* OtherActor)
 	playEffect();
 
 	AFPSCharacter* thePlayer = Cast<AFPSCharacter>(OtherActor);
-	if (thePlayer != NULL)
+	if (thePlayer)
 	{
 		thePlayer->overlapsWithObjective(this);
 		Destroy();

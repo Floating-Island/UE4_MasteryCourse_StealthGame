@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "FPSObjectiveActor.h"
 #include "FPSCharacter.generated.h"
-#include <FPSObjectiveActor.h>
 
 class UInputComponent;
 class USkeletalMeshComponent;
@@ -34,6 +34,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	UCameraComponent* CameraComponent;
 
+	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
+	bool isCarryingObjective = false;
+
 public:
 	AFPSCharacter();
 
@@ -48,9 +51,6 @@ public:
 	/** AnimMontage to play each time we fire */
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 	UAnimSequence* FireAnimation;
-
-	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
-	bool isCarryingObjective;
 
 	void overlapsWithObjective(AFPSObjectiveActor* theObjective);
 
