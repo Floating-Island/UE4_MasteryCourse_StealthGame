@@ -73,9 +73,15 @@
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSObjectiveActor.h">
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\FPSGame\Public\FPSBlackHole.h">
+      <Filter>Source\FPSGame\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSObjectiveActor.cpp">
+      <Filter>Source\FPSGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FPSGame\Private\FPSBlackHole.cpp">
       <Filter>Source\FPSGame\Private</Filter>
     </ClCompile>
   </ItemGroup>
