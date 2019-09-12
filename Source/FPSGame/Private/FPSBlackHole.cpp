@@ -29,6 +29,8 @@ AFPSBlackHole::AFPSBlackHole()
 	vanishingSphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);//only responds to a pawn when it overlaps
 	vanishingSphereComponent->SetupAttachment(meshComp);//it attaches to the mesh
 
+	vanishingSphereComponent->OnComponentBeginOverlap.AddDynamic(this, &AFPSBlackHole::overlappingWithVanishingSphere);
+
 
 }
 
@@ -45,14 +47,10 @@ void AFPSBlackHole::overlappingWithAttractionSphere()
 	for (UPrimitiveComponent* actor : CollectedActors)
 		actor->AddRadialImpulse(this->GetActorLocation(), attractionSphereComponent->GetScaledSphereRadius(), forceApplied, ERadialImpulseFalloff::RIF_Constant, false);
 }
-
-void AFPSBlackHole::overlappingWithVanishingSphere()
+void AFPSBlackHole::overlappingWithVanishingSphere(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
-	TArray<UPrimitiveComponent*> CollectedActors;
-	vanishingSphereComponent->GetOverlappingComponents(CollectedActors);//get all the actors that overlap with the vanishing sphere.
-	TQueue<UPrimitiveComponent*> actorQueue;
-	for (UPrimitiveComponent* actor : CollectedActors)
-		actor->DestroyComponent(true);
+	if (otherActor)
+		otherActor->Destroy();
 }
 
 // Called every frame
@@ -60,7 +58,6 @@ void AFPSBlackHole::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	this->overlappingWithAttractionSphere();
-	this->overlappingWithVanishingSphere();
 	//adds a radial impulse to every actor inside the sphere radius.
 	//the force comes from within the BlackHole location.
 	//the force is negative because we want to pull the objects inside.
