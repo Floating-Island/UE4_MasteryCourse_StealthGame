@@ -8,6 +8,11 @@
 #include "Kismet/GameplayStatics.h"
 
 
+void AFPSCharacter::overlapsWithObjective(AFPSObjectiveActor* theObjective)
+{
+	isCarryingObjective = true;
+}
+
 AFPSCharacter::AFPSCharacter()
 {
 	// Create a CameraComponent	

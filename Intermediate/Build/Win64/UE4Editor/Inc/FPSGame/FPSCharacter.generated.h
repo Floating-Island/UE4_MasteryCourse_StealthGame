@@ -13,9 +13,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define FPSGAME_FPSCharacter_generated_h
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS_NO_PURE_DECLS \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_RPC_WRAPPERS
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_RPC_WRAPPERS_NO_PURE_DECLS
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSCharacter(); \
 	friend struct Z_Construct_UClass_AFPSCharacter_Statics; \
@@ -24,7 +24,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSCharacter)
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_INCLASS \
 private: \
 	static void StaticRegisterNativesAFPSCharacter(); \
 	friend struct Z_Construct_UClass_AFPSCharacter_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(AFPSCharacter)
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_STANDARD_CONSTRUCTORS \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API AFPSCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AFPSCharacter) \
@@ -46,7 +46,7 @@ private: \
 public:
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_ENHANCED_CONSTRUCTORS \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AFPSCharacter(AFPSCharacter&&); \
@@ -57,31 +57,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFPSCharacter)
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Mesh1PComponent() { return STRUCT_OFFSET(AFPSCharacter, Mesh1PComponent); } \
 	FORCEINLINE static uint32 __PPO__GunMeshComponent() { return STRUCT_OFFSET(AFPSCharacter, GunMeshComponent); } \
-	FORCEINLINE static uint32 __PPO__CameraComponent() { return STRUCT_OFFSET(AFPSCharacter, CameraComponent); }
+	FORCEINLINE static uint32 __PPO__CameraComponent() { return STRUCT_OFFSET(AFPSCharacter, CameraComponent); } \
+	FORCEINLINE static uint32 __PPO__isCarryingObjective() { return STRUCT_OFFSET(AFPSCharacter, isCarryingObjective); }
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_17_PROLOG
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_GENERATED_BODY_LEGACY \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_18_PROLOG
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_STANDARD_CONSTRUCTORS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_RPC_WRAPPERS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_INCLASS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_GENERATED_BODY \
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_PRIVATE_PROPERTY_OFFSET \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_INCLASS_NO_PURE_DECLS \
-	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_20_ENHANCED_CONSTRUCTORS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_INCLASS_NO_PURE_DECLS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

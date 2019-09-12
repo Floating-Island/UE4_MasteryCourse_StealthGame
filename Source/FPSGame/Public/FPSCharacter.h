@@ -1,9 +1,10 @@
-// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+ // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "FPSObjectiveActor.h"
 #include "FPSCharacter.generated.h"
 
 class UInputComponent;
@@ -33,6 +34,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	UCameraComponent* CameraComponent;
 
+	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
+	bool isCarryingObjective = false;
+
 public:
 	AFPSCharacter();
 
@@ -47,6 +51,8 @@ public:
 	/** AnimMontage to play each time we fire */
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 	UAnimSequence* FireAnimation;
+
+	void overlapsWithObjective(AFPSObjectiveActor* theObjective);
 
 protected:
 	
