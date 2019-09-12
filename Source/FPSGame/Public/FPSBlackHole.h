@@ -25,14 +25,18 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USphereComponent* attractionSphereComponent;//to be able to apply to it collission
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		USphereComponent* vanishingSphereComponent;//to be able vanish objects
+
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 	float forceApplied = -7000.0f;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	void overlappingWithAttractionSphere();
+	void overlappingWithVanishingSphere();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 };

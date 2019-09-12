@@ -22,6 +22,14 @@ AFPSBlackHole::AFPSBlackHole()
 	attractionSphereComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
 	attractionSphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);//only responds to a pawn when it overlaps
 	attractionSphereComponent->SetupAttachment(meshComp);//it attaches to the mesh
+
+	vanishingSphereComponent = CreateDefaultSubobject < USphereComponent>(TEXT("Vanishing Sphere component"));//creates component 
+	vanishingSphereComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);//the sphere collides
+	vanishingSphereComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
+	vanishingSphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);//only responds to a pawn when it overlaps
+	vanishingSphereComponent->SetupAttachment(meshComp);//it attaches to the mesh
+
+
 }
 
 // Called when the game starts or when spawned
@@ -31,18 +39,36 @@ void AFPSBlackHole::BeginPlay()
 	
 }
 
-// Called every frame
-void AFPSBlackHole::Tick(float DeltaTime)
+void AFPSBlackHole::overlappingWithAttractionSphere()
 {
-	Super::Tick(DeltaTime);
-
 	TArray<UPrimitiveComponent*> CollectedActors;
 	attractionSphereComponent->GetOverlappingComponents(CollectedActors);//get all the actors that overlap with the attraction sphere.
 	for (UPrimitiveComponent* actor : CollectedActors)
 		actor->AddRadialImpulse(this->GetActorLocation(), attractionSphereComponent->GetScaledSphereRadius(), forceApplied, ERadialImpulseFalloff::RIF_Constant, false);
+}
+
+void AFPSBlackHole::overlappingWithVanishingSphere()
+{
+	TArray<UPrimitiveComponent*> CollectedActors;
+	vanishingSphereComponent->GetOverlappingComponents(CollectedActors);//get all the actors that overlap with the attraction sphere.
+	TQueue<UPrimitiveComponent*> actorQueue;
+	for (UPrimitiveComponent* actor : CollectedActors)
+		actor->DestroyComponent(true);
+		
+	
+
+}
+
+// Called every frame
+void AFPSBlackHole::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	this->overlappingWithAttractionSphere();
+	this->overlappingWithVanishingSphere();
 	//adds a radial impulse to every actor inside the sphere radius.
 	//the force comes from within the BlackHole location.
 	//the force is negative because we want to pull the objects inside.
 
 }
+
 
