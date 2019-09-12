@@ -12,8 +12,8 @@ UCLASS()
 class FPSGAME_API AFPSBlackHole : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AFPSBlackHole();
 
@@ -23,20 +23,20 @@ protected:
 		UStaticMeshComponent* meshComp;//to be able to show it.
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	USphereComponent* attractionSphereComponent;//to be able to apply to it collission
+		USphereComponent* attractionSphereComponent;//to be able to apply to it collission
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		USphereComponent* vanishingSphereComponent;//to be able vanish objects
 
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
-	float forceApplied = -7000.0f;
+		float forceApplied = -7000.0f;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	void overlappingWithAttractionSphere();
 	void overlappingWithVanishingSphere();
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 };

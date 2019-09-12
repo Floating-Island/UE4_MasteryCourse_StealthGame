@@ -10,7 +10,7 @@
 // Sets default values
 AFPSBlackHole::AFPSBlackHole()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	meshComp = CreateDefaultSubobject < UStaticMeshComponent>(TEXT("Mesh Component"));//creates component 
@@ -36,7 +36,6 @@ AFPSBlackHole::AFPSBlackHole()
 void AFPSBlackHole::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void AFPSBlackHole::overlappingWithAttractionSphere()
@@ -50,13 +49,10 @@ void AFPSBlackHole::overlappingWithAttractionSphere()
 void AFPSBlackHole::overlappingWithVanishingSphere()
 {
 	TArray<UPrimitiveComponent*> CollectedActors;
-	vanishingSphereComponent->GetOverlappingComponents(CollectedActors);//get all the actors that overlap with the attraction sphere.
+	vanishingSphereComponent->GetOverlappingComponents(CollectedActors);//get all the actors that overlap with the vanishing sphere.
 	TQueue<UPrimitiveComponent*> actorQueue;
 	for (UPrimitiveComponent* actor : CollectedActors)
 		actor->DestroyComponent(true);
-		
-	
-
 }
 
 // Called every frame
