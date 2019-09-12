@@ -22,8 +22,11 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")//UE4 now is able to see and edit this
 		UStaticMeshComponent* meshComp;//to be able to show it.
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")//UE4 now is able to see and edit this
-		USphereComponent* attractSphereComponent;//to be able to apply to it collission
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	USphereComponent* attractionSphereComponent;//to be able to apply to it collission
+
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
+	float forceApplied = -7000.0f;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
