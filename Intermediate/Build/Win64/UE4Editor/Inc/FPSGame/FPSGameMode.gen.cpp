@@ -47,6 +47,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameMode() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AFPSGameMode_onMissionComplete_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Game Mode" },
 		{ "ModuleRelativePath", "Public/FPSGameMode.h" },
+		{ "ToolTip", "makes it available to use as a Blueprint event." },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AFPSGameMode_onMissionComplete_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AFPSGameMode, nullptr, "onMissionComplete", sizeof(FPSGameMode_eventonMissionComplete_Parms), Z_Construct_UFunction_AFPSGameMode_onMissionComplete_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AFPSGameMode_onMissionComplete_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AFPSGameMode_onMissionComplete_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AFPSGameMode_onMissionComplete_Statics::Function_MetaDataParams)) };
@@ -78,7 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameMode() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_FPSGame,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AFPSGameMode_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AFPSGameMode_onMissionComplete, "onMissionComplete" }, // 758553081
+		{ &Z_Construct_UFunction_AFPSGameMode_onMissionComplete, "onMissionComplete" }, // 30373215
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AFPSGameMode_Statics::Class_MetaDataParams[] = {
@@ -115,7 +116,7 @@ void EmptyLinkFunctionForGeneratedCodeFPSGameMode() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFPSGameMode, 2812212840);
+	IMPLEMENT_CLASS(AFPSGameMode, 4052938954);
 	template<> FPSGAME_API UClass* StaticClass<AFPSGameMode>()
 	{
 		return AFPSGameMode::StaticClass();

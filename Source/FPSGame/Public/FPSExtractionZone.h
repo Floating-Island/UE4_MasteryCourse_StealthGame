@@ -31,6 +31,9 @@ protected:
 		void handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
 			int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
 
+	UPROPERTY(EditDefaultsOnly, Category = "Sounds")
+	USoundBase* objectiveMissingSound;
+
 public:
 
 };

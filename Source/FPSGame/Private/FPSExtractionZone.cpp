@@ -6,6 +6,7 @@
 #include "Components/DecalComponent.h"
 #include "FPSCharacter.h"
 #include "FPSGameMode.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone()
@@ -15,7 +16,7 @@ AFPSExtractionZone::AFPSExtractionZone()
 	overlapComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
 	overlapComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	overlapComponent->SetBoxExtent(boxExtent);
-	
+
 	RootComponent = overlapComponent;
 
 	overlapComponent->SetHiddenInGame(false);//now shows edges of the cube in UE Editor while playing
@@ -31,11 +32,15 @@ AFPSExtractionZone::AFPSExtractionZone()
 void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
 	int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
-	UE_LOG(LogTemp, Log, TEXT("Overlapped with extraction zone"));
+
 
 	AFPSCharacter* player = Cast<AFPSCharacter>(otherActor);
 
-	if (player && player->isCarryingObjective)
+	if (player == nullptr)
+		return;
+
+	UE_LOG(LogTemp, Log, TEXT("Overlapped with extraction zone!"));
+	if (player->isCarryingObjective)
 	{
 		AFPSGameMode* gameMode = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());//GetWorld()->GetAuthGameMode() will return nullptr on a client
 		if (gameMode)
@@ -43,5 +48,7 @@ void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent,
 			gameMode->missionComplete(player);
 		}
 	}
+	else
+		UGameplayStatics::PlaySound2D(this, objectiveMissingSound);//UGameplayStatics is a Singleton and static
 }
 
