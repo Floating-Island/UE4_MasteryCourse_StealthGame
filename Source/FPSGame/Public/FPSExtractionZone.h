@@ -12,8 +12,8 @@ UCLASS()
 class FPSGAME_API AFPSExtractionZone : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	AFPSExtractionZone();
 
@@ -21,10 +21,13 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UBoxComponent* overlapComponent;
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
+		FVector boxExtent = FVector(200.0f);
 
-public:	
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UBoxComponent* overlapComponent;
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
