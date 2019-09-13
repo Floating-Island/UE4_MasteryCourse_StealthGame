@@ -22,6 +22,7 @@ AFPSExtractionZone::AFPSExtractionZone()
 
 	decalComponent = CreateDefaultSubobject<UDecalComponent>(TEXT("Decal Component"));
 	decalComponent->DecalSize = overlapComponent->GetScaledBoxExtent();
+	decalComponent->SetupAttachment(RootComponent);//materials will be applied at the RootComponent location.
 }
 
 
