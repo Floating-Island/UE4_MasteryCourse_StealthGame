@@ -5,6 +5,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/DecalComponent.h"
 #include "FPSCharacter.h"
+#include "FPSGameMode.h"
 
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone()
@@ -36,7 +37,11 @@ void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent,
 
 	if (player && player->isCarryingObjective)
 	{
-
+		AFPSGameMode* gameMode = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());//GetWorld()->GetAuthGameMode() will return nullptr on a server
+		if (gameMode)
+		{
+			gameMode->missionComplete(player);
+		}
 	}
 }
 
