@@ -34,7 +34,7 @@ void AFPSGameMode::missionComplete(APawn* player)
 
 				APlayerController* missionPlayerController = Cast<APlayerController>(player->GetController());//get the player controller
 				if (missionPlayerController)
-					missionPlayerController->SetViewTargetWithBlend(spectator, 0.5f, EViewTargetBlendFunction::VTBlend_Cubic);//asign the view target to another actor.
+					missionPlayerController->SetViewTargetWithBlend(spectator, 0.5f, EViewTargetBlendFunction::VTBlend_Cubic);//assign the view target to another actor.
 			}
 		}
 		else

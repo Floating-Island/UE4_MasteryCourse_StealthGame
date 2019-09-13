@@ -92,4 +92,14 @@
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\FPSGame\Public\FPSLaunchPad.h">
+      <Filter>Source\FPSGame\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\FPSGame\Private\FPSLaunchPad.cpp">
+      <Filter>Source\FPSGame\Private</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
