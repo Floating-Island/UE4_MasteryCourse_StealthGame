@@ -15,6 +15,8 @@ AFPSExtractionZone::AFPSExtractionZone()
 	
 	RootComponent = overlapComponent;
 
+	overlapComponent->SetHiddenInGame(false);//now shows edges of the cube in UE Editor while playing
+
 	overlapComponent->OnComponentBeginOverlap.AddDynamic(this, &AFPSExtractionZone::handleOverlap);
 }
 
