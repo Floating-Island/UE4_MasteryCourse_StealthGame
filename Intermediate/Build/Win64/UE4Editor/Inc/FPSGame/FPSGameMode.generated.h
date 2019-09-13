@@ -66,7 +66,10 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSGameMode); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFPSGameMode)
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_PRIVATE_PROPERTY_OFFSET
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__SpectatorViewpointClass() { return STRUCT_OFFSET(AFPSGameMode, SpectatorViewpointClass); }
+
+
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_9_PROLOG \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_EVENT_PARMS
 
