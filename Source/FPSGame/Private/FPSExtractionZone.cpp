@@ -22,6 +22,6 @@ AFPSExtractionZone::AFPSExtractionZone()
 void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
 	int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
-
+	UE_LOG(LogTemp, Log, TEXT("Overlapped with extraction zone"));
 }
 
