@@ -27,8 +27,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* overlapComponent;
 
+	UFUNCTION()
+	void handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
+		int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
+
 public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 };

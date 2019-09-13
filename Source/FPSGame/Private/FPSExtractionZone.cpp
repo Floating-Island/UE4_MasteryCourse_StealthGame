@@ -7,9 +7,6 @@
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
 	overlapComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("Overlap Component"));
 	overlapComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	overlapComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
@@ -17,19 +14,14 @@ AFPSExtractionZone::AFPSExtractionZone()
 	overlapComponent->SetBoxExtent(boxExtent);
 	
 	RootComponent = overlapComponent;
+
+	overlapComponent->OnComponentBeginOverlap.AddDynamic(this, &AFPSExtractionZone::handleOverlap);
 }
 
-// Called when the game starts or when spawned
-void AFPSExtractionZone::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
 
-// Called every frame
-void AFPSExtractionZone::Tick(float DeltaTime)
+void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
+	int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
-	Super::Tick(DeltaTime);
 
 }
 
