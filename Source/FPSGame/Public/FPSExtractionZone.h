@@ -25,11 +25,11 @@ protected:
 		UBoxComponent* overlapComponent;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UDecalComponent* decalComponent;
+		UDecalComponent* decalComponent;
 
 	UFUNCTION()
-	void handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
-		int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
+		void handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
+			int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
 
 public:
 
