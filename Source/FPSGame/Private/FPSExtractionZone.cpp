@@ -3,6 +3,7 @@
 
 #include "FPSExtractionZone.h"
 #include "Components/BoxComponent.h"
+#include "Components/DecalComponent.h"
 
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone()
@@ -18,6 +19,9 @@ AFPSExtractionZone::AFPSExtractionZone()
 	overlapComponent->SetHiddenInGame(false);//now shows edges of the cube in UE Editor while playing
 
 	overlapComponent->OnComponentBeginOverlap.AddDynamic(this, &AFPSExtractionZone::handleOverlap);
+
+	decalComponent = CreateDefaultSubobject<UDecalComponent>(TEXT("Decal Component"));
+	decalComponent->DecalSize = overlapComponent->GetScaledBoxExtent();
 }
 
 

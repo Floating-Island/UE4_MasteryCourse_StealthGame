@@ -24,6 +24,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* overlapComponent;
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UDecalComponent* decalComponent;
+
 	UFUNCTION()
 	void handleOverlap(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
 		int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
