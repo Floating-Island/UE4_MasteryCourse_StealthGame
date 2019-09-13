@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class APawn;
 #ifdef FPSGAME_FPSGameMode_generated_h
 #error "FPSGameMode.generated.h already included, missing '#pragma once' in FPSGameMode.h"
 #endif
@@ -15,6 +16,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_RPC_WRAPPERS
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_EVENT_PARMS \
+	struct FPSGameMode_eventonMissionComplete_Parms \
+	{ \
+		APawn* pawn; \
+	};
+
+
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_CALLBACK_WRAPPERS
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSGameMode(); \
@@ -57,13 +66,20 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSGameMode); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AFPSGameMode)
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_PRIVATE_PROPERTY_OFFSET
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_9_PROLOG
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__SpectatorViewpointClass() { return STRUCT_OFFSET(AFPSGameMode, SpectatorViewpointClass); }
+
+
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_9_PROLOG \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_EVENT_PARMS
+
+
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_RPC_WRAPPERS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_CALLBACK_WRAPPERS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_INCLASS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_STANDARD_CONSTRUCTORS \
 public: \
@@ -75,6 +91,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_PRIVATE_PROPERTY_OFFSET \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_CALLBACK_WRAPPERS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_INCLASS_NO_PURE_DECLS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_12_ENHANCED_CONSTRUCTORS \
 private: \

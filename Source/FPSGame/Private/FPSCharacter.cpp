@@ -10,7 +10,7 @@
 
 void AFPSCharacter::overlapsWithObjective(AFPSObjectiveActor* theObjective)
 {
-	isCarryingObjective = true;
+	this->isCarryingObjective = true;
 }
 
 AFPSCharacter::AFPSCharacter()

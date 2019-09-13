@@ -367,7 +367,10 @@
     <None Include="..\..\FPSGame.uproject" />
     <None Include="..\..\Source\FPSGame.Target.cs" />
     <None Include="..\..\Source\FPSGameEditor.Target.cs" />
+    <None Include="..\..\.gitattributes" />
+    <None Include="..\..\.gitignore" />
     <None Include="..\..\Config\DefaultEditor.ini" />
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini" />
     <None Include="..\..\Config\DefaultEngine.ini" />
     <None Include="..\..\Config\DefaultGame.ini" />
     <None Include="..\..\Config\DefaultInput.ini" />
@@ -376,14 +379,18 @@
     <ClInclude Include="..\..\Source\FPSGame\FPSGame.h" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSBlackHole.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSCharacter.cpp" />
+    <ClCompile Include="..\..\Source\FPSGame\Private\FPSExtractionZone.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSGameMode.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSHUD.cpp" />
+    <ClCompile Include="..\..\Source\FPSGame\Private\FPSLaunchPad.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSObjectiveActor.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSProjectile.cpp" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSBlackHole.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSCharacter.h" />
+    <ClInclude Include="..\..\Source\FPSGame\Public\FPSExtractionZone.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSGameMode.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSHUD.h" />
+    <ClInclude Include="..\..\Source\FPSGame\Public\FPSLaunchPad.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSObjectiveActor.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSProjectile.h" />
   </ItemGroup>

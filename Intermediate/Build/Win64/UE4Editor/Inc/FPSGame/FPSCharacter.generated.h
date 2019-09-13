@@ -60,8 +60,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSCharacter); \
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_21_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__Mesh1PComponent() { return STRUCT_OFFSET(AFPSCharacter, Mesh1PComponent); } \
 	FORCEINLINE static uint32 __PPO__GunMeshComponent() { return STRUCT_OFFSET(AFPSCharacter, GunMeshComponent); } \
-	FORCEINLINE static uint32 __PPO__CameraComponent() { return STRUCT_OFFSET(AFPSCharacter, CameraComponent); } \
-	FORCEINLINE static uint32 __PPO__isCarryingObjective() { return STRUCT_OFFSET(AFPSCharacter, isCarryingObjective); }
+	FORCEINLINE static uint32 __PPO__CameraComponent() { return STRUCT_OFFSET(AFPSCharacter, CameraComponent); }
 
 
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_18_PROLOG
