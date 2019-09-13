@@ -1,4 +1,4 @@
- // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
+// Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #pragma once
 
@@ -23,39 +23,40 @@ class AFPSCharacter : public ACharacter
 protected:
 
 	/** Pawn mesh: 1st person view  */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Mesh")
-	USkeletalMeshComponent* Mesh1PComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh")
+		USkeletalMeshComponent* Mesh1PComponent;
 
 	/** Gun mesh: 1st person view (seen only by self) */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh")
-	USkeletalMeshComponent* GunMeshComponent;
+		USkeletalMeshComponent* GunMeshComponent;
 
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
-	UCameraComponent* CameraComponent;
-
-	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
-	bool isCarryingObjective = false;
+		UCameraComponent* CameraComponent;
 
 public:
 	AFPSCharacter();
 
 	/** Projectile class to spawn */
-	UPROPERTY(EditDefaultsOnly, Category="Projectile")
-	TSubclassOf<AFPSProjectile> ProjectileClass;
+	UPROPERTY(EditDefaultsOnly, Category = "Projectile")
+		TSubclassOf<AFPSProjectile> ProjectileClass;
 
 	/** Sound to play each time we fire */
-	UPROPERTY(EditDefaultsOnly, Category="Gameplay")
-	USoundBase* FireSound;
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
+		USoundBase* FireSound;
 
 	/** AnimMontage to play each time we fire */
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
-	UAnimSequence* FireAnimation;
+		UAnimSequence* FireAnimation;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
+		bool isCarryingObjective = false;
 
 	void overlapsWithObjective(AFPSObjectiveActor* theObjective);
 
+
 protected:
-	
+
 	/** Fires a projectile. */
 	void Fire();
 

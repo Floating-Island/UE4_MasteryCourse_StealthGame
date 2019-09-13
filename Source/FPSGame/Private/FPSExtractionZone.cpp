@@ -4,6 +4,7 @@
 #include "FPSExtractionZone.h"
 #include "Components/BoxComponent.h"
 #include "Components/DecalComponent.h"
+#include "FPSCharacter.h"
 
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone()
@@ -30,5 +31,12 @@ void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent,
 	int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
 	UE_LOG(LogTemp, Log, TEXT("Overlapped with extraction zone"));
+
+	AFPSCharacter* player = Cast<AFPSCharacter>(otherActor);
+
+	if (player && player->isCarryingObjective)
+	{
+
+	}
 }
 
