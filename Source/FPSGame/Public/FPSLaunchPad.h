@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "FPSLaunchPad.generated.h"
 
+class UBoxComponent;//forward declaration
+
 UCLASS()
 class FPSGAME_API AFPSLaunchPad : public AActor
 {
@@ -18,6 +20,14 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
+		FVector baseExtent = FVector(20.0f, 20.0f, 5.0f);
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UBoxComponent* baseComponent;
+
+
 
 public:	
 	// Called every frame
