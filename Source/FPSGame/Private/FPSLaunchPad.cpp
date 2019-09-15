@@ -22,12 +22,6 @@ AFPSLaunchPad::AFPSLaunchPad()
 
 }
 
-// Called when the game starts or when spawned
-void AFPSLaunchPad::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
 
 void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
@@ -38,12 +32,5 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 		UE_LOG(LogTemp, Log, TEXT("player overlapped with launch pad."));
 		player->LaunchCharacter(launchImpulse, false, false);
 	}
-}
-
-// Called every frame
-void AFPSLaunchPad::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
