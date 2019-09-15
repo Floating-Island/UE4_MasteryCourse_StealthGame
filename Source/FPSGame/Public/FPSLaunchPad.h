@@ -31,6 +31,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* baseComponent;
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")//UE4 now is able to see and edit this
+		UStaticMeshComponent* surfaceMesh;//to be able to show it.
+
 	UFUNCTION()
 		void overlappingWithBaseComponent(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
 			int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);

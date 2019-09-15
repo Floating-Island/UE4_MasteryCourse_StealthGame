@@ -4,6 +4,7 @@
 #include "FPSLaunchPad.h"
 #include "Components\BoxComponent.h"
 #include "Components\StaticMeshComponent.h"
+#include "Components\DecalComponent.h"
 #include "FPSCharacter.h"
 
 // Sets default values
@@ -13,15 +14,16 @@ AFPSLaunchPad::AFPSLaunchPad()
 	baseMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	RootComponent = baseMesh;
 
+	surfaceMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Surface Mesh"));
+	surfaceMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	surfaceMesh->SetupAttachment(RootComponent);
+
 	baseComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("Base Component"));
 	baseComponent->SetBoxExtent(baseExtent);
 	baseComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	baseComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
 	baseComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	baseComponent->SetupAttachment(RootComponent);
-
-	
-
 
 	baseComponent->OnComponentBeginOverlap.AddDynamic(this, &AFPSLaunchPad::overlappingWithBaseComponent);
 
