@@ -4,7 +4,7 @@
 #include "FPSLaunchPad.h"
 #include "Components\BoxComponent.h"
 #include "Components\StaticMeshComponent.h"
-#include "Components\DecalComponent.h"
+#include <Kismet/GameplayStatics.h>
 #include "FPSCharacter.h"
 
 // Sets default values
@@ -41,6 +41,7 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 		UE_LOG(LogTemp, Log, TEXT("surface's forward vector is %s"),
 			*impulseDirection.ToString());
 		FVector totalImpulse = impulseDirection * launchVelocityImpulse + launchHeightImpulse;
+		this->launchEffect();
 		player->LaunchCharacter(totalImpulse, true, false);
 	}
 	if (otherComponent != nullptr && otherComponent->IsSimulatingPhysics())
@@ -48,7 +49,13 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 		UE_LOG(LogTemp, Log, TEXT("component overlapped with launch pad!"));
 		FVector impulseDirection = surfaceMesh->GetForwardVector();
 		FVector totalImpulse = impulseDirection * launchVelocityImpulse + launchHeightImpulse;
+		this->launchEffect();
 		otherComponent->AddImpulse(totalImpulse, NAME_None, true);
 	}
+}
+
+void AFPSLaunchPad::launchEffect()
+{
+	UGameplayStatics::SpawnEmitterAtLocation(this, launchFX, this->GetActorLocation());
 }
 

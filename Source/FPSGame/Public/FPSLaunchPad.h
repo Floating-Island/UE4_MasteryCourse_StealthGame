@@ -41,6 +41,10 @@ protected:
 		void overlappingWithBaseComponent(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
 			int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
 
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+		UParticleSystem* launchFX;
+	void launchEffect();
+
 
 public:
 
