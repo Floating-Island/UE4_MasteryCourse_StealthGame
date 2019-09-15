@@ -18,7 +18,7 @@ AFPSLaunchPad::AFPSLaunchPad()
 	RootComponent = baseComponent;
 
 
-
+	baseComponent->OnComponentBeginOverlap.AddDynamic(this, &AFPSLaunchPad::overlappingWithBaseComponent);
 
 }
 
@@ -35,6 +35,7 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 
 	if (player != nullptr)
 	{
+		UE_LOG(LogTemp, Log, TEXT("player overlapped with launch pad."));
 		player->LaunchCharacter(launchImpulse, false, false);
 	}
 }
