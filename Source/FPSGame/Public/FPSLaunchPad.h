@@ -21,19 +21,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")//UE4 now is able to see and edit this
-		UStaticMeshComponent* baseMesh;//to be able to show it.
-
-
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 		FVector baseExtent = FVector(20.0f, 20.0f, 5.0f);
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* baseComponent;
-
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-		UDecalComponent* decalComponent;
-
 
 
 public:	
