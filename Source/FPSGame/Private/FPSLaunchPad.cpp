@@ -13,9 +13,6 @@ AFPSLaunchPad::AFPSLaunchPad()
 
 	RootComponent = baseComponent;
 
-	decalComponent = CreateDefaultSubobject<UDecalComponent>(TEXT("Decal Component"));
-	decalComponent->DecalSize = baseComponent->GetScaledBoxExtent();
-	decalComponent->SetupAttachment(RootComponent);//materials will be applied at the RootComponent location.
 
 
 
