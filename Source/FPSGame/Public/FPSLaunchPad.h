@@ -28,7 +28,6 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")//UE4 now is able to see and edit this
 		UStaticMeshComponent* baseMesh;//to be able to show it.
 
-
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* baseComponent;
 

@@ -19,6 +19,7 @@ AFPSLaunchPad::AFPSLaunchPad()
 	baseComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
 	baseComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	baseComponent->SetupAttachment(RootComponent);
+
 	
 
 
