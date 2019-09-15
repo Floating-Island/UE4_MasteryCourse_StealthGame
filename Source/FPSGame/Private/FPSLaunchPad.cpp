@@ -37,12 +37,18 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 	if (player != nullptr)
 	{
 		UE_LOG(LogTemp, Log, TEXT("player overlapped with launch pad!"));
-		player->LaunchCharacter(launchImpulse, false, false);
+		FVector impulseDirection = surfaceMesh->GetForwardVector();
+		UE_LOG(LogTemp, Log, TEXT("surface's forward vector is %s"),
+			*impulseDirection.ToString());
+		FVector totalImpulse = impulseDirection * launchVelocityImpulse + launchHeightImpulse;
+		player->LaunchCharacter(totalImpulse, true, false);
 	}
 	if (otherComponent != nullptr && otherComponent->IsSimulatingPhysics())
 	{
 		UE_LOG(LogTemp, Log, TEXT("component overlapped with launch pad!"));
-		otherComponent->AddImpulse(launchImpulse, NAME_None, true);
+		FVector impulseDirection = surfaceMesh->GetForwardVector();
+		FVector totalImpulse = impulseDirection * launchVelocityImpulse + launchHeightImpulse;
+		otherComponent->AddImpulse(totalImpulse, NAME_None, true);
 	}
 }
 
