@@ -11,7 +11,7 @@ AFPSLaunchPad::AFPSLaunchPad()
 {
 	baseMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Base Mesh"));
 	baseMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-	RootComponent = baseComponent;
+	RootComponent = baseMesh;
 
 	baseComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("Base Component"));
 	baseComponent->SetBoxExtent(baseExtent);
