@@ -24,8 +24,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 		FVector baseExtent = FVector(20.0f, 20.0f, 5.0f);
 
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
+		FVector launchImpulse = FVector(2000.0f, 0.0f, 1000.0f);
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* baseComponent;
+
+	UFUNCTION()
+		void overlappingWithBaseComponent(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent,
+			int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult);
 
 
 public:	
