@@ -20,7 +20,7 @@ public:
 protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
-		FVector baseExtent = FVector(20.0f, 20.0f, 5.0f);
+		FVector baseExtent = FVector(80.0f, 80.0f, 5.0f);
 
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 		FVector launchImpulse = FVector(2000.0f, 0.0f, 1000.0f);

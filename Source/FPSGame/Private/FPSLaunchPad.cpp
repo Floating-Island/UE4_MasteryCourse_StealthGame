@@ -9,6 +9,7 @@
 // Sets default values
 AFPSLaunchPad::AFPSLaunchPad()
 {
+
 	baseComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("Base Component"));
 	baseComponent->SetBoxExtent(baseExtent);
 	baseComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -29,8 +30,13 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 
 	if (player != nullptr)
 	{
-		UE_LOG(LogTemp, Log, TEXT("player overlapped with launch pad."));
+		UE_LOG(LogTemp, Log, TEXT("player overlapped with launch pad!"));
 		player->LaunchCharacter(launchImpulse, false, false);
+	}
+	if (otherComponent != nullptr && otherComponent->IsSimulatingPhysics())
+	{
+		UE_LOG(LogTemp, Log, TEXT("component overlapped with launch pad!"));
+		otherComponent->AddImpulse(launchImpulse, NAME_None, true);
 	}
 }
 
