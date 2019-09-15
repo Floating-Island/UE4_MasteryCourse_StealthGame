@@ -3,6 +3,7 @@
 
 #include "FPSLaunchPad.h"
 #include "Components\BoxComponent.h"
+#include "Components\DecalComponent.h"
 
 // Sets default values
 AFPSLaunchPad::AFPSLaunchPad()
@@ -11,6 +12,10 @@ AFPSLaunchPad::AFPSLaunchPad()
 	baseComponent->SetBoxExtent(baseExtent);
 
 	RootComponent = baseComponent;
+
+	decalComponent = CreateDefaultSubobject<UDecalComponent>(TEXT("Decal Component"));
+	decalComponent->DecalSize = baseComponent->GetScaledBoxExtent();
+	decalComponent->SetupAttachment(RootComponent);//materials will be applied at the RootComponent location.
 
 
 
