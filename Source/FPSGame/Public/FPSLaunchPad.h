@@ -45,6 +45,8 @@ protected:
 		UParticleSystem* launchFX;
 	void launchEffect();
 
+	FVector totalImpulse();
+
 
 public:
 
