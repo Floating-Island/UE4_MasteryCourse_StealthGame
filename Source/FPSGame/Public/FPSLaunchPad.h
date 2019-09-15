@@ -25,6 +25,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 		FVector launchImpulse = FVector(2000.0f, 0.0f, 1000.0f);
 
+	UPROPERTY(VisibleAnywhere, Category = "Components")//UE4 now is able to see and edit this
+		UStaticMeshComponent* baseMesh;//to be able to show it.
+
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UBoxComponent* baseComponent;
 
