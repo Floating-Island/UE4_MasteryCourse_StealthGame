@@ -45,7 +45,8 @@ void AFPSBlackHole::overlappingWithAttractionSphere()
 	TArray<UPrimitiveComponent*> CollectedActors;
 	attractionSphereComponent->GetOverlappingComponents(CollectedActors);//get all the actors that overlap with the attraction sphere.
 	for (UPrimitiveComponent* actor : CollectedActors)
-		actor->AddRadialImpulse(this->GetActorLocation(), attractionSphereComponent->GetScaledSphereRadius(), forceApplied, ERadialImpulseFalloff::RIF_Constant, false);
+		if (actor->IsSimulatingPhysics())
+			actor->AddRadialImpulse(this->GetActorLocation(), attractionSphereComponent->GetScaledSphereRadius(), forceApplied, ERadialImpulseFalloff::RIF_Constant, false);
 }
 void AFPSBlackHole::overlappingWithVanishingSphere(UPrimitiveComponent* overlappedComponent, AActor* otherActor, UPrimitiveComponent* otherComponent, int32 otherBodyIndex, bool bFromSweep, const FHitResult& sweepResult)
 {
