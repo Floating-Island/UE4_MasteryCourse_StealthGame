@@ -25,10 +25,3 @@ void AFPSAIGuard::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-void AFPSAIGuard::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
-
