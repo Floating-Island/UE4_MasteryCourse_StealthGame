@@ -377,6 +377,7 @@
     <None Include="..\..\Source\FPSGame\FPSGame.Build.cs" />
     <ClCompile Include="..\..\Source\FPSGame\FPSGame.cpp" />
     <ClInclude Include="..\..\Source\FPSGame\FPSGame.h" />
+    <ClCompile Include="..\..\Source\FPSGame\Private\FPSAIGuard.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSBlackHole.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSCharacter.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSExtractionZone.cpp" />
@@ -385,6 +386,7 @@
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSLaunchPad.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSObjectiveActor.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSProjectile.cpp" />
+    <ClInclude Include="..\..\Source\FPSGame\Public\FPSAIGuard.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSBlackHole.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSCharacter.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSExtractionZone.h" />
