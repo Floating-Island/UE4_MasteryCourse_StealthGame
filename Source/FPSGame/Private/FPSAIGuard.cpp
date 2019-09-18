@@ -33,6 +33,13 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume)
 {
 	DrawDebugSphere(GetWorld(), noiseLocation, 32.0f, 12, FColor::Orange, false, 10.0f);//kind of visual log.
+
+	FVector distractionDirection = noiseLocation - this->GetActorLocation();
+	distractionDirection.Normalize();
+
+	FRotator distractionRotator = FRotationMatrix::MakeFromX(distractionDirection).Rotator();
+
+	this->SetActorRotation(distractionRotator);
 }
 
 // Called every frame
