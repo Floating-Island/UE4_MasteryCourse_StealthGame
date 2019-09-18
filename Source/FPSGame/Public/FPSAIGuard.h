@@ -24,6 +24,7 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UPawnSensingComponent* sensingComponent;
 
+	UFUNCTION()
 	void seeingACharacter(APawn* character);
 
 public:	
