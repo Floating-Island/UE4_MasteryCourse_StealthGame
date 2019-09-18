@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components\PawnNoiseEmitterComponent.h"
 
 
 void AFPSCharacter::overlapsWithObjective(AFPSObjectiveActor* theObjective)
@@ -32,6 +33,9 @@ AFPSCharacter::AFPSCharacter()
 	GunMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
 	GunMeshComponent->CastShadow = false;
 	GunMeshComponent->SetupAttachment(Mesh1PComponent, "GripPoint");
+
+	//Create a NoiseEmitterComponent
+	noiseEmissionComponent = CreateDefaultSubobject<UPawnNoiseEmitterComponent>(TEXT("Noise Emitter"));// now the character is able to make noise.
 }
 
 
