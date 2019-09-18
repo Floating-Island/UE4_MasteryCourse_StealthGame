@@ -27,6 +27,9 @@ protected:
 	UFUNCTION()
 	void seeingACharacter(APawn* character);
 
+	UFUNCTION()
+	void hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

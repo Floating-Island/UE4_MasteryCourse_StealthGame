@@ -13,8 +13,8 @@ AFPSAIGuard::AFPSAIGuard()
 
 	sensingComponent = CreateDefaultSubobject<UPawnSensingComponent>(TEXT("Sensing Component"));//doesn't need an attachment, it's not a scene component. Doesn't belong to the hierarchy
 
-	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);
-
+	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
+	sensingComponent->OnHearNoise.AddDynamic(this, &);//hearsense setup
 }
 
 // Called when the game starts or when spawned
@@ -28,6 +28,11 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 {
 	if (character != nullptr)
 		DrawDebugSphere(GetWorld(), character->GetActorLocation(), 32.0f, 12, FColor::Yellow, false, 10.0f);//kind of visual log.
+}
+
+void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume)
+{
+	DrawDebugSphere(GetWorld(), noiseLocation, 32.0f, 12, FColor::Orange, false, 10.0f);//kind of visual log.
 }
 
 // Called every frame
