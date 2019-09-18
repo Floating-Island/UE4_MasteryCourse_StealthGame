@@ -39,6 +39,10 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 
 	FRotator distractionRotator = FRotationMatrix::MakeFromX(distractionDirection).Rotator();
 
+	distractionRotator.Pitch = 0.0f;//only yaw is wanted
+	distractionRotator.Roll = 0.0f;//only yaw is wanted
+	
+
 	this->SetActorRotation(distractionRotator);
 }
 
