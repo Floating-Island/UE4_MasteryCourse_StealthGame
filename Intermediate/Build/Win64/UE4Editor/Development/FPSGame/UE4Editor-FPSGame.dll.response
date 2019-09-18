@@ -81,6 +81,7 @@
 "C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\Core\UE4Editor-Core.lib"
 "C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\CoreUObject\UE4Editor-CoreUObject.lib"
 "C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\InputCore\UE4Editor-InputCore.lib"
+"C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Development\AIModule\UE4Editor-AIModule.lib"
 /OUT:"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Binaries\Win64\UE4Editor-FPSGame.dll"
 /IMPLIB:"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\UE4Editor-FPSGame.suppressed.lib"
 /PDB:"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Binaries\Win64\UE4Editor-FPSGame.pdb"

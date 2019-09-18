@@ -24,6 +24,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UPawnSensingComponent* sensingComponent;
 
+	void seeingACharacter(APawn* character);
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
