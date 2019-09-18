@@ -14,7 +14,7 @@ AFPSAIGuard::AFPSAIGuard()
 	sensingComponent = CreateDefaultSubobject<UPawnSensingComponent>(TEXT("Sensing Component"));//doesn't need an attachment, it's not a scene component. Doesn't belong to the hierarchy
 
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
-	sensingComponent->OnHearNoise.AddDynamic(this, &);//hearsense setup
+	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
 }
 
 // Called when the game starts or when spawned
