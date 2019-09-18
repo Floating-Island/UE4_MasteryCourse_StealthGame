@@ -36,9 +36,8 @@ void AFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPr
 {
 	// Only add impulse and destroy projectile if we hit a physics
 	if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL) && OtherComp->IsSimulatingPhysics())
-	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
-
-		Destroy();
-	}
+	MakeNoise(1.0f, Instigator);//instigator is the one responsible for damage deal. In this case is used to make noise.
+	//Instigator has a UNoiseEmitterComponent so it's nice to use.
+	Destroy();
 }
