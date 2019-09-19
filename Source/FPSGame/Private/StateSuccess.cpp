@@ -3,7 +3,7 @@
 
 GameModeState* StateSuccess::singletonInstance()
 {
-	if (instance == nullptr)
-		instance = new StateSuccess();
+	static StateSuccess initializedInstance;
+		instance = &initializedInstance;
 	return instance;
 }

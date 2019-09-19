@@ -4,7 +4,7 @@ class StateSuccess :
 	public GameModeState
 {
 private:
-	static GameModeState* instance = nullptr;
+	static GameModeState* instance;
 	StateSuccess() {};
 public:
 	static GameModeState* singletonInstance();
