@@ -37,7 +37,7 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 	if (gameMode)
 	{
 		gameMode->failure();
-		gameMode->missionComplete(character);
+		gameMode->missionEnded(character);
 	}
 		
 }

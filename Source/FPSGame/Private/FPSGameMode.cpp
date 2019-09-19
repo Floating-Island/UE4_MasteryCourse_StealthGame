@@ -20,7 +20,7 @@ AFPSGameMode::AFPSGameMode()
 	gameState = new StateFactory();
 }
 
-void AFPSGameMode::missionComplete(APawn* player)
+void AFPSGameMode::missionEnded(APawn* player)
 {
 	if (player)
 	{
