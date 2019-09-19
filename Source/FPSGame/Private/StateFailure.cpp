@@ -4,6 +4,5 @@
 GameModeState* StateFailure::singletonInstance()
 {
 	static StateFailure initializedInstance;
-	instance = &initializedInstance;
-	return instance;
+	return &initializedInstance;
 }

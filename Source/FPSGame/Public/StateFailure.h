@@ -4,7 +4,6 @@ class StateFailure :
 	public GameModeState
 {
 private:
-	static GameModeState* instance;
 	StateFailure() {};
 public:
 	static GameModeState* singletonInstance();
