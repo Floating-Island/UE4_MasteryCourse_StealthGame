@@ -1,8 +1,8 @@
 
 #include "StateSuccess.h"
 
-GameModeState* StateSuccess::singletonInstance()
+GameModeState* SingletonStateSuccess::singletonInstance()
 {
-	static StateSuccess initializedInstance;
+	static SingletonStateSuccess initializedInstance;
 	return &initializedInstance;
 }

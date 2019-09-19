@@ -1,8 +1,8 @@
 
 #include "StateFailure.h"
 
-GameModeState* StateFailure::singletonInstance()
+GameModeState* SingletonStateFailure::singletonInstance()
 {
-	static StateFailure initializedInstance;
+	static SingletonStateFailure initializedInstance;
 	return &initializedInstance;
 }

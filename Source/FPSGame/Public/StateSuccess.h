@@ -1,13 +1,13 @@
 #pragma once
 #include "GameModeState.h"
-class StateSuccess :
+class SingletonStateSuccess :
 	public GameModeState
 {
 private:
-	StateSuccess() {};
+	SingletonStateSuccess() {};
 public:
 	static GameModeState* singletonInstance();
 	void missionResult(AFPSGameMode* gameMode, APawn* player) { gameMode->onMissionComplete(player); };
-	~StateSuccess() {};
+	~SingletonStateSuccess() {};
 };
 
