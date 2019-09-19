@@ -16,7 +16,7 @@ AFPSGameMode::AFPSGameMode()
 	HUDClass = AFPSHUD::StaticClass();
 }
 
-void AFPSGameMode::missionComplete(APawn* player)
+void AFPSGameMode::missionComplete(APawn* player, bool missionSuccess)
 {
 	if (player)
 	{
@@ -41,7 +41,5 @@ void AFPSGameMode::missionComplete(APawn* player)
 			UE_LOG(LogTemp, Warning, TEXT("SpectatorViewpointClass is nullptr. Update GameMode class. Unable to change view target."));
 
 	}
-	this->onMissionComplete(player);
-
-
+	this->onMissionComplete(player, missionSuccess);
 }
