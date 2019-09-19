@@ -6,6 +6,8 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
 
+#include "StateFactory.h"
+
 AFPSGameMode::AFPSGameMode()
 {
 	// set default pawn class to our Blueprinted character
@@ -14,6 +16,8 @@ AFPSGameMode::AFPSGameMode()
 
 	// use our custom HUD class
 	HUDClass = AFPSHUD::StaticClass();
+
+	gameState = &StateFactory();
 }
 
 void AFPSGameMode::missionComplete(APawn* player)//boolean should be changed to a State pattern
@@ -41,5 +45,16 @@ void AFPSGameMode::missionComplete(APawn* player)//boolean should be changed to 
 			UE_LOG(LogTemp, Warning, TEXT("SpectatorViewpointClass is nullptr. Update GameMode class. Unable to change view target."));
 
 	}
-	this->onMissionComplete(player);//boolean shouldn't exist. Should be another function exposable to blueprint
+	this->success();
+	this->gameState->missionResult(this, player);//boolean shouldn't exist. Should be another function exposable to blueprint
+}
+
+void AFPSGameMode::failure()
+{
+	gameState->failure();
+}
+
+void AFPSGameMode::success()
+{
+	gameState->success();
 }

@@ -35,7 +35,11 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 	//next should be in an extracted function
 	AFPSGameMode* gameMode = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());//GetWorld()->GetAuthGameMode() will return nullptr on a client
 	if (gameMode)
+	{
+		gameMode->failure();
 		gameMode->missionComplete(character);
+	}
+		
 }
 
 void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume)
