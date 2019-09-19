@@ -364,6 +364,14 @@
     <NMakeOutput>..\..\Binaries\HTML5\FPSGame-HTML5-Shipping.js</NMakeOutput>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="GameModeState.cpp" />
+    <ClCompile Include="StateFactory.cpp" />
+    <ClCompile Include="StateFailure.cpp" />
+    <ClCompile Include="StateSuccess.cpp" />
+    <ClInclude Include="GameModeState.h" />
+    <ClInclude Include="StateFactory.h" />
+    <ClInclude Include="StateFailure.h" />
+    <ClInclude Include="StateSuccess.h" />
     <None Include="..\..\FPSGame.uproject" />
     <None Include="..\..\Source\FPSGame.Target.cs" />
     <None Include="..\..\Source\FPSGameEditor.Target.cs" />
