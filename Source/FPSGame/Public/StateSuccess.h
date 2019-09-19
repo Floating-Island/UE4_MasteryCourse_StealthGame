@@ -5,8 +5,8 @@ class StateSuccess :
 {
 private:
 	GameModeState* instance = nullptr;
-public:
 	StateSuccess() {};
+public:
 	GameModeState* singletonInstance();
 	void missionResult(AFPSGameMode* gameMode, APawn* player) { gameMode->onMissionComplete(player); };
 	~StateSuccess() {};
