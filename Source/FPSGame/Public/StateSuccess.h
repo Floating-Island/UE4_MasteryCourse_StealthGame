@@ -4,10 +4,10 @@ class StateSuccess :
 	public GameModeState
 {
 private:
-	GameModeState* instance = nullptr;
+	static GameModeState* instance = nullptr;
 	StateSuccess() {};
 public:
-	GameModeState* singletonInstance();
+	static GameModeState* singletonInstance();
 	void missionResult(AFPSGameMode* gameMode, APawn* player) { gameMode->onMissionComplete(player); };
 	~StateSuccess() {};
 };
