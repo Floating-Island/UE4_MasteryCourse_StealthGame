@@ -22,15 +22,22 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UPawnSensingComponent* sensingComponent;
+		UPawnSensingComponent* sensingComponent;
 
 	UFUNCTION()
-	void seeingACharacter(APawn* character);
+		void seeingACharacter(APawn* character);
 
 	UFUNCTION()
-	void hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume);
+		void hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume);
 
-public:	
+	FRotator originalOrientation;
+
+	FTimerHandle resetOrientationTimer;
+
+	UFUNCTION()
+		void resetOrientation();
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

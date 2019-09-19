@@ -4,6 +4,7 @@
 #include "FPSAIGuard.h"
 #include "Perception\PawnSensingComponent.h"
 #include "DrawDebugHelpers.h"
+#include "TimerManager.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -21,6 +22,7 @@ AFPSAIGuard::AFPSAIGuard()
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
+	originalOrientation = this->GetActorRotation();
 
 }
 
@@ -37,13 +39,22 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 	FVector distractionDirection = noiseLocation - this->GetActorLocation();
 	distractionDirection.Normalize();
 
-	FRotator distractionRotator = FRotationMatrix::MakeFromX(distractionDirection).Rotator();
+	FRotator distractionOrientation = FRotationMatrix::MakeFromX(distractionDirection).Rotator();
 
-	distractionRotator.Pitch = 0.0f;//only yaw is wanted
-	distractionRotator.Roll = 0.0f;//only yaw is wanted
-	
+	distractionOrientation.Pitch = 0.0f;//only yaw is wanted
+	distractionOrientation.Roll = 0.0f;//only yaw is wanted
 
-	this->SetActorRotation(distractionRotator);
+
+	this->SetActorRotation(distractionOrientation);
+
+	GetWorldTimerManager().ClearTimer(resetOrientationTimer);
+
+	GetWorldTimerManager().SetTimer(resetOrientationTimer, this, &AFPSAIGuard::resetOrientation, 3.0f, false);
+}
+
+void AFPSAIGuard::resetOrientation()
+{
+	this->SetActorRotation(originalOrientation);
 }
 
 // Called every frame
