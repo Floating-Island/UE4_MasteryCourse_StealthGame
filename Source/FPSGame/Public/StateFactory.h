@@ -9,9 +9,9 @@ private:
 	GameModeState* currentState;
 
 public:
-	StateFactory() { currentState = &StateFailure(); }
+	StateFactory() { currentState = new StateFailure(); }
 	void missionResult(AFPSGameMode* gameMode, APawn* player) { currentState->missionResult(gameMode, player); };
-	void success() { currentState = &StateSuccess(); }
-	void failure() { currentState = &StateFailure(); }
+	void success() { currentState = new StateSuccess(); }
+	void failure() { currentState = new StateFailure(); }
 };
 

@@ -17,7 +17,7 @@ AFPSGameMode::AFPSGameMode()
 	// use our custom HUD class
 	HUDClass = AFPSHUD::StaticClass();
 
-	gameState = &StateFactory();
+	gameState = new StateFactory();
 }
 
 void AFPSGameMode::missionComplete(APawn* player)//boolean should be changed to a State pattern
