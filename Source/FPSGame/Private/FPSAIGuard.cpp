@@ -5,6 +5,8 @@
 #include "Perception\PawnSensingComponent.h"
 #include "DrawDebugHelpers.h"
 #include "TimerManager.h"
+#include "FPSGameMode.h"
+#include "Engine/World.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -30,6 +32,10 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 {
 	if (character != nullptr)
 		DrawDebugSphere(GetWorld(), character->GetActorLocation(), 32.0f, 12, FColor::Yellow, false, 10.0f);//kind of visual log.
+	//next should be in an extracted function
+	AFPSGameMode* gameMode = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());//GetWorld()->GetAuthGameMode() will return nullptr on a client
+	if (gameMode)
+		gameMode->missionComplete(character, false);
 }
 
 void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume)

@@ -16,7 +16,7 @@ AFPSGameMode::AFPSGameMode()
 	HUDClass = AFPSHUD::StaticClass();
 }
 
-void AFPSGameMode::missionComplete(APawn* player, bool missionSuccess)
+void AFPSGameMode::missionComplete(APawn* player, bool missionSuccess)//boolean should be changed to a State pattern
 {
 	if (player)
 	{
@@ -41,5 +41,5 @@ void AFPSGameMode::missionComplete(APawn* player, bool missionSuccess)
 			UE_LOG(LogTemp, Warning, TEXT("SpectatorViewpointClass is nullptr. Update GameMode class. Unable to change view target."));
 
 	}
-	this->onMissionComplete(player, missionSuccess);
+	this->onMissionComplete(player, missionSuccess);//boolean shouldn't exist. Should be another function exposable to blueprint
 }
