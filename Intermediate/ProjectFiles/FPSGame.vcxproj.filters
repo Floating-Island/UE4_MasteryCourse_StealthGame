@@ -145,6 +145,9 @@
     <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardAlertedState.h">
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardStateFactory.h">
+      <Filter>Source\FPSGame\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardIdleState.cpp">
@@ -154,6 +157,9 @@
       <Filter>Source\FPSGame\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardAlertedState.cpp">
+      <Filter>Source\FPSGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardStateFactory.cpp">
       <Filter>Source\FPSGame\Private</Filter>
     </ClCompile>
   </ItemGroup>
