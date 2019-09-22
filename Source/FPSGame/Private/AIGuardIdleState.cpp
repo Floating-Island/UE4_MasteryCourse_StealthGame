@@ -13,6 +13,7 @@ AIGuardIdleState::AIGuardIdleState()
 AIGuardState* AIGuardIdleState::singletonInstance()
 {
 	static AIGuardIdleState initializedInstance;
+	AIGuardIdleState::onIdleStateEvent();
 	return &initializedInstance;
 }
 

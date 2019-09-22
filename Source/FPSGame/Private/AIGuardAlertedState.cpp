@@ -10,6 +10,7 @@ AIGuardAlertedState::AIGuardAlertedState()
 AIGuardState* AIGuardAlertedState::singletonInstance()
 {
 	static AIGuardAlertedState initializedInstance;
+	AIGuardAlertedState::onAlertedStateEvent();
 	return &initializedInstance;
 }
 

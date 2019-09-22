@@ -13,6 +13,7 @@ AIGuardSuspiciousState::AIGuardSuspiciousState()
 AIGuardState* AIGuardSuspiciousState::singletonInstance()
 {
 	static AIGuardSuspiciousState initializedInstance;
+	AIGuardSuspiciousState::onSuspiciousStateEvent();
 	return &initializedInstance;
 }
 
