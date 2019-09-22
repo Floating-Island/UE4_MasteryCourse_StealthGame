@@ -14,7 +14,7 @@ class FPSGAME_API AIGuardState
 public:
 	AIGuardState();
 	virtual ~AIGuardState();
-	virtual AIGuardState* reactToNoise() = 0;
-	virtual AIGuardState* reactToSpotting() = 0;
+	virtual AIGuardState* reactToNoise(AFPSAIGuard* guard) = 0;
+	virtual AIGuardState* reactToSpotting(AFPSAIGuard* guard) = 0;
 	virtual AIGuardState* goingBackToOriginalPosition(AFPSAIGuard* guard) = 0;
 };

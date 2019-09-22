@@ -5,27 +5,26 @@
 #include "AIGuardSuspiciousState.h"
 #include "AIGuardAlertedState.h"
 #include "FPSAIGuard.h"
-#include "UAIGuardState.h"
 
 AIGuardIdleState::AIGuardIdleState()
 {
 }
 
-AIGuardState* AIGuardIdleState::singletonInstance()
+AIGuardState* AIGuardIdleState::singletonInstance(AFPSAIGuard* guard)
 {
 	static AIGuardIdleState initializedInstance;
-	UUAIGuardState::onIdleStateEvent();
+	guard->onIdleStateEvent(guard);
 	return &initializedInstance;
 }
 
-AIGuardState* AIGuardIdleState::reactToNoise()
+AIGuardState* AIGuardIdleState::reactToNoise(AFPSAIGuard* guard)
 {
-	return AIGuardSuspiciousState::singletonInstance();
+	return AIGuardSuspiciousState::singletonInstance(guard);
 }
 
-AIGuardState* AIGuardIdleState::reactToSpotting()
+AIGuardState* AIGuardIdleState::reactToSpotting(AFPSAIGuard* guard)
 {
-	return AIGuardAlertedState::singletonInstance();
+	return AIGuardAlertedState::singletonInstance(guard);
 }
 
 AIGuardState* AIGuardIdleState::goingBackToOriginalPosition(AFPSAIGuard* guard)

@@ -13,8 +13,8 @@ class FPSGAME_API AIGuardSuspiciousState : public AIGuardState
 private:
 	AIGuardSuspiciousState();
 public:
-	static AIGuardState* singletonInstance();
-	AIGuardState* reactToNoise();
-	AIGuardState* reactToSpotting();
+	static AIGuardState* singletonInstance(AFPSAIGuard* guard);
+	AIGuardState* reactToNoise(AFPSAIGuard* guard);
+	AIGuardState* reactToSpotting(AFPSAIGuard* guard);
 	AIGuardState* goingBackToOriginalPosition(AFPSAIGuard* guard);
 };

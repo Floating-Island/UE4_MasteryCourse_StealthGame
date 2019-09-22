@@ -20,7 +20,7 @@ AFPSAIGuard::AFPSAIGuard()
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
 	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
 
-	state = new AIGuardStateFactory();
+	state = new AIGuardStateFactory(this);
 }
 
 // Called when the game starts or when spawned
@@ -33,7 +33,7 @@ void AFPSAIGuard::BeginPlay()
 
 void AFPSAIGuard::seeingACharacter(APawn* character)
 {
-	state->reactToSpotting();
+	state->reactToSpotting(this);
 	if (character != nullptr)
 		DrawDebugSphere(GetWorld(), character->GetActorLocation(), 32.0f, 12, FColor::Yellow, false, 10.0f);//kind of visual log.
 	//next should be in an extracted function
@@ -48,7 +48,7 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 
 void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation, float volume)
 {
-	state->reactToNoise();
+	state->reactToNoise(this);
 	DrawDebugSphere(GetWorld(), noiseLocation, 32.0f, 12, FColor::Orange, false, 10.0f);//kind of visual log.
 
 	FVector distractionDirection = noiseLocation - this->GetActorLocation();

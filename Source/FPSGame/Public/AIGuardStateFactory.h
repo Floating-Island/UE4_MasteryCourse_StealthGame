@@ -13,9 +13,9 @@ class FPSGAME_API AIGuardStateFactory : public AIGuardState
 private:
 	AIGuardState* state;
 public:
-	AIGuardStateFactory();
-	AIGuardState* reactToNoise();
-	AIGuardState* reactToSpotting();
+	AIGuardStateFactory(AFPSAIGuard* guard);
+	AIGuardState* reactToNoise(AFPSAIGuard* guard);
+	AIGuardState* reactToSpotting(AFPSAIGuard* guard);
 	AIGuardState* goingBackToOriginalPosition(AFPSAIGuard* guard);
 
 };

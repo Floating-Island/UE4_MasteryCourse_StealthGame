@@ -6,20 +6,20 @@
 #include "AIGuardSuspiciousState.h"
 #include "AIGuardAlertedState.h"
 
-AIGuardStateFactory::AIGuardStateFactory()
+AIGuardStateFactory::AIGuardStateFactory(AFPSAIGuard* guard)
 {
-	state = AIGuardIdleState::singletonInstance();
+	state = AIGuardIdleState::singletonInstance(guard);
 }
 
-AIGuardState* AIGuardStateFactory::reactToNoise()
+AIGuardState* AIGuardStateFactory::reactToNoise(AFPSAIGuard* guard)
 {
-	state = state->reactToNoise();
+	state = state->reactToNoise(guard);
 	return state;
 }
 
-AIGuardState* AIGuardStateFactory::reactToSpotting()
+AIGuardState* AIGuardStateFactory::reactToSpotting(AFPSAIGuard* guard)
 {
-	state = state->reactToSpotting();
+	state = state->reactToSpotting(guard);
 	return state;
 }
 

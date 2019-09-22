@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\FPSGame.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{207A97D3-F2ED-4304-9265-E4EC4D359B12}</UniqueIdentifier>
+      <UniqueIdentifier>{4CEA3E00-F028-46F9-B35F-104BA08D7E00}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\FPSGame.Target.cs">
       <Filter>Source</Filter>
@@ -15,7 +15,7 @@
     <None Include="..\..\.gitignore" />
     <None Include="..\..\README.md" />
     <Filter Include="Config">
-      <UniqueIdentifier>{EC7E72BC-5E63-4302-A459-4C05CB6BE985}</UniqueIdentifier>
+      <UniqueIdentifier>{A6655C29-F2E1-4944-AADA-33F6AF4FBBF3}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -33,7 +33,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\FPSGame">
-      <UniqueIdentifier>{8A158B02-B7FC-4134-BB70-EB88DC100F3B}</UniqueIdentifier>
+      <UniqueIdentifier>{171DE96C-4F77-42B1-BB2A-0F2F35A00FCD}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\FPSGame\FPSGame.Build.cs">
       <Filter>Source\FPSGame</Filter>
@@ -45,7 +45,7 @@
       <Filter>Source\FPSGame</Filter>
     </ClInclude>
     <Filter Include="Source\FPSGame\Private">
-      <UniqueIdentifier>{5913929A-5896-4565-8CBF-698C98A45E69}</UniqueIdentifier>
+      <UniqueIdentifier>{CB545CAF-5366-4CE8-AF9E-14F431F666CA}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardAlertedState.cpp">
       <Filter>Source\FPSGame\Private</Filter>
@@ -101,8 +101,11 @@
     <ClCompile Include="..\..\Source\FPSGame\Private\StateSuccess.cpp">
       <Filter>Source\FPSGame\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\FPSGame\Private\UAIGuardState.cpp">
+      <Filter>Source\FPSGame\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\FPSGame\Public">
-      <UniqueIdentifier>{D1523A78-EDB0-40F4-A049-8F129E5D3A6C}</UniqueIdentifier>
+      <UniqueIdentifier>{A9FF1718-E1BA-49ED-9BC2-3A67CFA9B2C5}</UniqueIdentifier>
     </Filter>
     <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardAlertedState.h">
       <Filter>Source\FPSGame\Public</Filter>
@@ -158,15 +161,8 @@
     <ClInclude Include="..\..\Source\FPSGame\Public\StateSuccess.h">
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\Source\FPSGame\Public\UAIGuardState.h">
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\FPSGame\Private\UAIGuardState.cpp">
-      <Filter>Source\FPSGame\Private</Filter>
-    </ClCompile>
   </ItemGroup>
 </Project>
