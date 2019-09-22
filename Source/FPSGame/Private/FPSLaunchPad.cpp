@@ -40,12 +40,13 @@ void AFPSLaunchPad::overlappingWithBaseComponent(UPrimitiveComponent* overlapped
 		this->launchEffect();
 		player->LaunchCharacter(this->totalImpulse(), true, false);
 	}
-	if (otherComponent != nullptr && otherComponent->IsSimulatingPhysics())
-	{
-		UE_LOG(LogTemp, Log, TEXT("component overlapped with launch pad!"));
-		this->launchEffect();
-		otherComponent->AddImpulse(this->totalImpulse(), NAME_None, true);
-	}
+	else
+		if (otherComponent != nullptr && otherComponent->IsSimulatingPhysics())
+		{
+			UE_LOG(LogTemp, Log, TEXT("component overlapped with launch pad!"));
+			this->launchEffect();
+			otherComponent->AddImpulse(this->totalImpulse(), NAME_None, true);
+		}
 }
 
 void AFPSLaunchPad::launchEffect()
