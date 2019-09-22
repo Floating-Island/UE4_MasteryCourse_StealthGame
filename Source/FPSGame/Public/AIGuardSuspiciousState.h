@@ -17,6 +17,4 @@ public:
 	AIGuardState* reactToNoise();
 	AIGuardState* reactToSpotting();
 	AIGuardState* goingBackToOriginalPosition(AFPSAIGuard* guard);
-	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void static onSuspiciousStateEvent();
 };

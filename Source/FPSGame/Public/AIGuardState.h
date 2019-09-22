@@ -3,14 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "UAIGuardState.h"
 
 class AFPSAIGuard;
 
 /**
  * 
  */
-class FPSGAME_API AIGuardState : public UUAIGuardState
+class FPSGAME_API AIGuardState
 {
 public:
 	AIGuardState();
