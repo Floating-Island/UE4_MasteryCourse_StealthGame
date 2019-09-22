@@ -13,16 +13,19 @@ AIGuardStateFactory::AIGuardStateFactory()
 
 AIGuardState* AIGuardStateFactory::reactToNoise()
 {
-	return state->reactToNoise();
+	state = state->reactToNoise();
+	return state;
 }
 
 AIGuardState* AIGuardStateFactory::reactToSpotting()
 {
-	return state->reactToSpotting();
+	state = state->reactToSpotting();
+	return state;
 }
 
 AIGuardState* AIGuardStateFactory::goingBackToOriginalPosition(AFPSAIGuard* guard)
 {
-	return state->goingBackToOriginalPosition(guard);
+	state = state->goingBackToOriginalPosition(guard);
+	return state;
 }
 
