@@ -15,15 +15,15 @@ AIGuardState* AIGuardAlertedState::singletonInstance()
 
 AIGuardState* AIGuardAlertedState::reactToNoise()
 {
-	return AIGuardAlertedState::singletonInstance();
+	return this;
 }
 
 AIGuardState* AIGuardAlertedState::reactToSpotting()
 {
-	return AIGuardAlertedState::singletonInstance();
+	return this;
 }
 
 AIGuardState* AIGuardAlertedState::goingBackToOriginalPosition()
 {
-	return AIGuardAlertedState::singletonInstance();
+	return this;
 }

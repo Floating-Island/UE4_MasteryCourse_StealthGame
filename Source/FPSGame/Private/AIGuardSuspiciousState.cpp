@@ -17,7 +17,7 @@ AIGuardState* AIGuardSuspiciousState::singletonInstance()
 
 AIGuardState* AIGuardSuspiciousState::reactToNoise()
 {
-	return AIGuardSuspiciousState::singletonInstance();
+	return this;
 }
 
 AIGuardState* AIGuardSuspiciousState::reactToSpotting()

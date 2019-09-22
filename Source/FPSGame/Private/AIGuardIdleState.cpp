@@ -27,5 +27,5 @@ AIGuardState* AIGuardIdleState::reactToSpotting()
 
 AIGuardState* AIGuardIdleState::goingBackToOriginalPosition()
 {
-	return AIGuardIdleState::singletonInstance();
+	return this;
 }
