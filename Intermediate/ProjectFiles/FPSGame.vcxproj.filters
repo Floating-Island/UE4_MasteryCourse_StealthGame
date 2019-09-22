@@ -142,12 +142,18 @@
     <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardSuspiciousState.h">
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardAlertedState.h">
+      <Filter>Source\FPSGame\Public</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardIdleState.cpp">
       <Filter>Source\FPSGame\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardSuspiciousState.cpp">
+      <Filter>Source\FPSGame\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardAlertedState.cpp">
       <Filter>Source\FPSGame\Private</Filter>
     </ClCompile>
   </ItemGroup>
