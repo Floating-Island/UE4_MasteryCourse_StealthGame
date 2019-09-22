@@ -136,5 +136,13 @@
     <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardState.h">
       <Filter>Source\FPSGame\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardIdleState.h">
+      <Filter>Source\FPSGame\Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardIdleState.cpp">
+      <Filter>Source\FPSGame\Private</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

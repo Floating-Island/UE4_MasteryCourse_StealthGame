@@ -378,6 +378,7 @@
     <None Include="..\..\Source\FPSGame\FPSGame.Build.cs" />
     <ClCompile Include="..\..\Source\FPSGame\FPSGame.cpp" />
     <ClInclude Include="..\..\Source\FPSGame\FPSGame.h" />
+    <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardIdleState.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\AIGuardState.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSAIGuard.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\FPSBlackHole.cpp" />
@@ -392,6 +393,7 @@
     <ClCompile Include="..\..\Source\FPSGame\Private\StateFactory.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\StateFailure.cpp" />
     <ClCompile Include="..\..\Source\FPSGame\Private\StateSuccess.cpp" />
+    <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardIdleState.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\AIGuardState.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSAIGuard.h" />
     <ClInclude Include="..\..\Source\FPSGame\Public\FPSBlackHole.h" />
