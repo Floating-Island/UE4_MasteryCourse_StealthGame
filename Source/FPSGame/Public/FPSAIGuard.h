@@ -7,11 +7,15 @@
 #include "FPSAIGuard.generated.h"
 
 class UPawnSensingComponent;
+class AIGuardState;
+
 
 UCLASS()
 class FPSGAME_API AFPSAIGuard : public ACharacter
 {
 	GENERATED_BODY()
+private:
+	AIGuardState* state;
 
 public:
 	// Sets default values for this character's properties
