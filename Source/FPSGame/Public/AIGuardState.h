@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 
+class AFPSAIGuard;
+
 /**
  * 
  */
@@ -14,5 +16,5 @@ public:
 	virtual ~AIGuardState();
 	virtual AIGuardState* reactToNoise() = 0;
 	virtual AIGuardState* reactToSpotting() = 0;
-	virtual AIGuardState* goingBackToOriginalPosition() = 0;
+	virtual AIGuardState* goingBackToOriginalPosition(AFPSAIGuard* guard) = 0;
 };

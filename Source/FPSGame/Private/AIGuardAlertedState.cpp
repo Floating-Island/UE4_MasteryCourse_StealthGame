@@ -23,7 +23,7 @@ AIGuardState* AIGuardAlertedState::reactToSpotting()
 	return this;
 }
 
-AIGuardState* AIGuardAlertedState::goingBackToOriginalPosition()
+AIGuardState* AIGuardAlertedState::goingBackToOriginalPosition(AFPSAIGuard* guard)
 {
 	return this;
 }

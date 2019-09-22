@@ -21,8 +21,8 @@ AIGuardState* AIGuardStateFactory::reactToSpotting()
 	return state->reactToSpotting();
 }
 
-AIGuardState* AIGuardStateFactory::goingBackToOriginalPosition()
+AIGuardState* AIGuardStateFactory::goingBackToOriginalPosition(AFPSAIGuard* guard)
 {
-	return state->goingBackToOriginalPosition();
+	return state->goingBackToOriginalPosition(guard);
 }
 

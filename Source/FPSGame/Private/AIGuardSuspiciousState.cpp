@@ -4,6 +4,7 @@
 #include "AIGuardSuspiciousState.h"
 #include "AIGuardAlertedState.h"
 #include "AIGuardIdleState.h"
+#include "FPSAIGuard.h"
 
 AIGuardSuspiciousState::AIGuardSuspiciousState()
 {
@@ -25,7 +26,8 @@ AIGuardState* AIGuardSuspiciousState::reactToSpotting()
 	return AIGuardAlertedState::singletonInstance();
 }
 
-AIGuardState* AIGuardSuspiciousState::goingBackToOriginalPosition()
+AIGuardState* AIGuardSuspiciousState::goingBackToOriginalPosition(AFPSAIGuard* guard)
 {
+	guard->initialOrientation();
 	return AIGuardIdleState::singletonInstance();
 }

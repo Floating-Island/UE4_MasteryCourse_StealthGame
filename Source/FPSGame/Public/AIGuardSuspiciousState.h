@@ -16,5 +16,5 @@ public:
 	static AIGuardState* singletonInstance();
 	AIGuardState* reactToNoise();
 	AIGuardState* reactToSpotting();
-	AIGuardState* goingBackToOriginalPosition();
+	AIGuardState* goingBackToOriginalPosition(AFPSAIGuard* guard);
 };

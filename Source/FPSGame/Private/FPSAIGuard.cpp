@@ -69,7 +69,11 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 
 void AFPSAIGuard::resetOrientation()
 {
-	state->goingBackToOriginalPosition();
+	state->goingBackToOriginalPosition(this);
+}
+
+void AFPSAIGuard::initialOrientation()
+{
 	this->SetActorRotation(originalOrientation);
 }
 
