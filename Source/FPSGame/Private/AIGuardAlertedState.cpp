@@ -2,6 +2,7 @@
 
 
 #include "AIGuardAlertedState.h"
+#include "UAIGuardState.h"
 
 AIGuardAlertedState::AIGuardAlertedState()
 {
@@ -10,7 +11,7 @@ AIGuardAlertedState::AIGuardAlertedState()
 AIGuardState* AIGuardAlertedState::singletonInstance()
 {
 	static AIGuardAlertedState initializedInstance;
-	AIGuardAlertedState::onAlertedStateEvent();
+	UUAIGuardState::onAlertedStateEvent();
 	return &initializedInstance;
 }
 

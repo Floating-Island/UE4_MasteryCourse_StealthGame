@@ -5,6 +5,7 @@
 #include "AIGuardSuspiciousState.h"
 #include "AIGuardAlertedState.h"
 #include "FPSAIGuard.h"
+#include "UAIGuardState.h"
 
 AIGuardIdleState::AIGuardIdleState()
 {
@@ -13,7 +14,7 @@ AIGuardIdleState::AIGuardIdleState()
 AIGuardState* AIGuardIdleState::singletonInstance()
 {
 	static AIGuardIdleState initializedInstance;
-	AIGuardIdleState::onIdleStateEvent();
+	UUAIGuardState::onIdleStateEvent();
 	return &initializedInstance;
 }
 
