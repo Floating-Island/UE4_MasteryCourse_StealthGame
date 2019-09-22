@@ -15,9 +15,9 @@ class FPSGAME_API UUAIGuardState : public UObject
 	GENERATED_BODY()
 public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void static onIdleStateEvent();
+		static void onIdleStateEvent();
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void static onSuspiciousStateEvent();
+		static void onSuspiciousStateEvent();
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void static onAlertedStateEvent();
+		static void onAlertedStateEvent();
 };
