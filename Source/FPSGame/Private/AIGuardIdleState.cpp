@@ -13,7 +13,7 @@ AIGuardIdleState::AIGuardIdleState()
 AIGuardState* AIGuardIdleState::singletonInstance(AFPSAIGuard* guard)
 {
 	static AIGuardIdleState initializedInstance;
-	guard->onIdleStateEvent(guard);
+	guard->onIdleStateEvent();;
 	return &initializedInstance;
 }
 

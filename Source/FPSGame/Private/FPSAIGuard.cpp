@@ -19,8 +19,6 @@ AFPSAIGuard::AFPSAIGuard()
 
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
 	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
-
-	state = new AIGuardStateFactory(this);
 }
 
 // Called when the game starts or when spawned
@@ -28,6 +26,7 @@ void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
 	originalOrientation = this->GetActorRotation();
+	state = new AIGuardStateFactory(this);
 
 }
 

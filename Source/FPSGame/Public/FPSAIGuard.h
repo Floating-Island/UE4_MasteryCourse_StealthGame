@@ -48,10 +48,9 @@ public:
 	void initialOrientation();
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void onIdleStateEvent(AFPSAIGuard* guard);//used by state
+		void onIdleStateEvent();//used by state
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void onSuspiciousStateEvent(AFPSAIGuard* guard);//used by state
+		void onSuspiciousStateEvent();//used by state
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void onAlertedStateEvent(AFPSAIGuard* guard);//used by state
-
+		void onAlertedStateEvent();//used by state
 };
