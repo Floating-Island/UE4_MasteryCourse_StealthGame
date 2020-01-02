@@ -188,16 +188,16 @@
 /I Runtime\AudioMixer\Classes
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
-/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\INCLUDE"
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/I C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine
-/Yc"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h"
-/Fp"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.cpp"
-/Fo"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h.obj"
+/I "C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine"
+/Yc"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h"
+/Fp"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h.pch"
+"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.cpp"
+/Fo"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h.obj"
 /TP
 /GR-
 /W4

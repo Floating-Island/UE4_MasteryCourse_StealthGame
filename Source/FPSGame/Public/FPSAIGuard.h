@@ -8,7 +8,7 @@
 
 class UPawnSensingComponent;
 class AIGuardState;
-
+class UPawnMovementComponent;
 
 UCLASS()
 class FPSGAME_API AFPSAIGuard : public ACharacter
@@ -40,6 +40,10 @@ protected:
 
 	UFUNCTION()
 		void resetOrientation();
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+		UPawnMovementComponent* movementComponent;
+
 
 public:
 	// Called every frame
