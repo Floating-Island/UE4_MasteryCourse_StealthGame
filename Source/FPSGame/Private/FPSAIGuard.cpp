@@ -22,7 +22,7 @@ AFPSAIGuard::AFPSAIGuard()
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
 	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
 
-	patrolTargetCollection.Empty();
+	patrolTargetCollection.Empty();//don't know if it's necessary.
 
 
 }
@@ -40,6 +40,8 @@ void AFPSAIGuard::BeginPlay()
 void AFPSAIGuard::seeingACharacter(APawn* character)
 {
 	state->reactToSpotting(this);
+	this->stopPatrolling();
+
 	if (character != nullptr)
 		DrawDebugSphere(GetWorld(), character->GetActorLocation(), 32.0f, 12, FColor::Yellow, false, 10.0f);//kind of visual log.
 	//next should be in an extracted function
@@ -65,7 +67,7 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 	distractionOrientation.Pitch = 0.0f;//only yaw is wanted
 	distractionOrientation.Roll = 0.0f;//only yaw is wanted
 
-
+	this->stopPatrolling();
 	this->SetActorRotation(distractionOrientation);
 
 	GetWorldTimerManager().ClearTimer(resetOrientationTimer);
@@ -76,6 +78,7 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 void AFPSAIGuard::resetOrientation()
 {
 	state->goingBackToOriginalPosition(this);
+	this->patrol();
 }
 
 void AFPSAIGuard::initialOrientation()
@@ -91,6 +94,28 @@ void AFPSAIGuard::patrol()
 		UAIBlueprintHelperLibrary::SimpleMoveToActor(this->GetController(), currentPatrolTarget);
 		patrolTargetCollection.Enqueue(currentPatrolTarget);
 	}
+}
+
+void AFPSAIGuard::patrolTickGoalCheck()
+{
+	if (currentPatrolTarget)
+	{
+		FVector distanceVector = this->GetActorLocation() - currentPatrolTarget->GetActorLocation();
+
+		float distanceToTarget = distanceVector.Size();
+
+		int goalAcceptanceUnits = 50;
+
+		if (distanceToTarget < goalAcceptanceUnits)
+			this->patrol();
+	}
+}
+
+void AFPSAIGuard::stopPatrolling()
+{
+	AController* guardController = this->GetController();
+	if (guardController)
+		guardController->StopMovement();
 }
 
 // Called every frame

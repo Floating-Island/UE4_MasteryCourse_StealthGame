@@ -48,6 +48,8 @@ protected:
 	AActor* currentPatrolTarget;
 
 	void patrol();
+	void patrolTickGoalCheck();
+	void stopPatrolling();
 
 
 public:
