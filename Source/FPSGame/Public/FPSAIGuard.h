@@ -8,7 +8,9 @@
 
 class UPawnSensingComponent;
 class AIGuardState;
-class UPawnMovementComponent;
+class UCharacterMovementComponent;
+class AAIController;
+
 
 UCLASS()
 class FPSGAME_API AFPSAIGuard : public ACharacter
@@ -41,9 +43,10 @@ protected:
 	UFUNCTION()
 		void resetOrientation();
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-		UPawnMovementComponent* movementComponent;
-
+	UPROPERTY(EditInstanceOnly, Category = "Patrol AI")
+		TArray<AActor*> patrolTargetCollection;
+	
+		AActor* currentPatrolTarget;
 
 public:
 	// Called every frame

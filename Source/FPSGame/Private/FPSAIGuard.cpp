@@ -8,7 +8,8 @@
 #include "FPSGameMode.h"
 #include "Engine/World.h"
 #include "AIGuardStateFactory.h"
-#include "GameFramework/PawnMovementComponent.h"
+#include "GameFramework/Controller.h"
+#include <Runtime\AIModule\Classes\AIController.h>
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -21,7 +22,6 @@ AFPSAIGuard::AFPSAIGuard()
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
 	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
 
-	movementComponent = CreateDefaultSubobject<UPawnMovementComponent>(TEXT("Movement Component"));
 }
 
 // Called when the game starts or when spawned
