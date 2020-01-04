@@ -8,8 +8,7 @@
 
 class UPawnSensingComponent;
 class AIGuardState;
-class UCharacterMovementComponent;
-class AAIController;
+
 
 
 UCLASS()
@@ -44,9 +43,12 @@ protected:
 		void resetOrientation();
 
 	UPROPERTY(EditInstanceOnly, Category = "Patrol AI")
-		TArray<AActor*> patrolTargetCollection;
+		TQueue<AActor*> patrolTargetCollection;
 	
-		AActor* currentPatrolTarget;
+	AActor* currentPatrolTarget;
+
+	void patrol();
+
 
 public:
 	// Called every frame

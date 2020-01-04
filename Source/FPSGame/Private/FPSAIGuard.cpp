@@ -8,8 +8,8 @@
 #include "FPSGameMode.h"
 #include "Engine/World.h"
 #include "AIGuardStateFactory.h"
-#include "GameFramework/Controller.h"
-#include <Runtime\AIModule\Classes\AIController.h>
+#include "Containers/Queue.h"
+#include "Blueprint/AIBlueprintHelperLibrary.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -22,6 +22,9 @@ AFPSAIGuard::AFPSAIGuard()
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
 	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
 
+	patrolTargetCollection.Empty();
+
+
 }
 
 // Called when the game starts or when spawned
@@ -30,6 +33,7 @@ void AFPSAIGuard::BeginPlay()
 	Super::BeginPlay();
 	originalOrientation = this->GetActorRotation();
 	state = new AIGuardStateFactory(this);
+	this->patrol();
 
 }
 
@@ -77,6 +81,16 @@ void AFPSAIGuard::resetOrientation()
 void AFPSAIGuard::initialOrientation()
 {
 	this->SetActorRotation(originalOrientation);
+}
+
+void AFPSAIGuard::patrol()
+{
+	if (patrolTargetCollection.Num() != 0)
+	{
+		currentPatrolTarget = patrolTargetCollection.Dequeue();
+		UAIBlueprintHelperLibrary::SimpleMoveToActor(this->GetController(), currentPatrolTarget);
+		patrolTargetCollection.Enqueue(currentPatrolTarget);
+	}
 }
 
 // Called every frame
