@@ -85,7 +85,7 @@ void AFPSAIGuard::initialOrientation()
 
 void AFPSAIGuard::patrol()
 {
-	if (patrolTargetCollection.Num() != 0)
+	if (!patrolTargetCollection.IsEmpty())
 	{
 		currentPatrolTarget = patrolTargetCollection.Dequeue();
 		UAIBlueprintHelperLibrary::SimpleMoveToActor(this->GetController(), currentPatrolTarget);
