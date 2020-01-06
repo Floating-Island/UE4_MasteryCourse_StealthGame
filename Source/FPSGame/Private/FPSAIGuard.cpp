@@ -11,6 +11,12 @@
 #include "Containers/Queue.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 
+void AFPSAIGuard::moveTargetPointsToQueue()
+{
+	for (AActor* target : targetPoints)
+		patrolTargetCollection.Enqueue(target);
+}
+
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
 {
@@ -33,6 +39,7 @@ void AFPSAIGuard::BeginPlay()
 	Super::BeginPlay();
 	originalOrientation = this->GetActorRotation();
 	state = new AIGuardStateFactory(this);
+	this->moveTargetPointsToQueue();
 	this->patrol();
 
 }
@@ -90,7 +97,7 @@ void AFPSAIGuard::patrol()
 {
 	if (!patrolTargetCollection.IsEmpty())
 	{
-		currentPatrolTarget = patrolTargetCollection.Dequeue();
+		patrolTargetCollection.Dequeue(currentPatrolTarget);
 		UAIBlueprintHelperLibrary::SimpleMoveToActor(this->GetController(), currentPatrolTarget);
 		patrolTargetCollection.Enqueue(currentPatrolTarget);
 	}
@@ -122,6 +129,5 @@ void AFPSAIGuard::stopPatrolling()
 void AFPSAIGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 

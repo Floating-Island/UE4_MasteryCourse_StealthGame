@@ -17,6 +17,7 @@ class FPSGAME_API AFPSAIGuard : public ACharacter
 	GENERATED_BODY()
 private:
 	AIGuardState* state;
+	void moveTargetPointsToQueue();
 
 public:
 	// Sets default values for this character's properties
@@ -43,7 +44,10 @@ protected:
 		void resetOrientation();
 
 	UPROPERTY(EditInstanceOnly, Category = "Patrol AI")
-		TQueue<AActor*> patrolTargetCollection;
+		TArray<AActor*> targetPoints;//can't use a tqueue directly in editor. I'll use a function to pass the elements of this tarray over the tqueue 'patrolTargetCollection'
+
+
+	TQueue<AActor*> patrolTargetCollection;
 	
 	AActor* currentPatrolTarget;
 
