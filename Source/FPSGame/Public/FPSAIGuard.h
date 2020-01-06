@@ -26,7 +26,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	//sensing
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 		UPawnSensingComponent* sensingComponent;
 
@@ -42,10 +42,9 @@ protected:
 
 	UFUNCTION()
 		void resetOrientation();
-
+	//patrolling
 	UPROPERTY(EditInstanceOnly, Category = "Patrol AI")
 		TArray<AActor*> targetPoints;//can't use a tqueue directly in editor. I'll use a function to pass the elements of this tarray over the tqueue 'patrolTargetCollection'
-
 
 	TQueue<AActor*> patrolTargetCollection;
 	

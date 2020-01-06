@@ -111,7 +111,9 @@ void AFPSAIGuard::patrolTickGoalCheck()
 
 		float distanceToTarget = distanceVector.Size();
 
-		int goalAcceptanceUnits = 50;
+		//UE_LOG(LogTemp, Log, TEXT("distance to goal is %lf"), distanceToTarget); //it's something like 100 when near.
+
+		int goalAcceptanceUnits = 110;
 
 		if (distanceToTarget < goalAcceptanceUnits)
 			this->patrol();
