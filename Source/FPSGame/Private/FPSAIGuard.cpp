@@ -129,5 +129,6 @@ void AFPSAIGuard::stopPatrolling()
 void AFPSAIGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	this->patrolTickGoalCheck();
 }
 
