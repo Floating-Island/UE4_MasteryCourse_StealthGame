@@ -1,6 +1,6 @@
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Public\FPSProjectile.h
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSProjectile.generated.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Public\FPSProjectile.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSProjectile.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/ProjectileMovementComponent.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/MovementComponent.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\MovementComponent.generated.h

@@ -1,5 +1,5 @@
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame/Public/FPSProjectile.h
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSProjectile.generated.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame/Public/FPSProjectile.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSProjectile.generated.h

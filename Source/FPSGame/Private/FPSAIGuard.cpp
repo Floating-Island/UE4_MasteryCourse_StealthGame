@@ -8,6 +8,14 @@
 #include "FPSGameMode.h"
 #include "Engine/World.h"
 #include "AIGuardStateFactory.h"
+#include "Containers/Queue.h"
+#include "Blueprint/AIBlueprintHelperLibrary.h"
+
+void AFPSAIGuard::moveTargetPointsToQueue()
+{
+	for (AActor* target : targetPoints)
+		patrolTargetCollection.Enqueue(target);
+}
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -19,6 +27,10 @@ AFPSAIGuard::AFPSAIGuard()
 
 	sensingComponent->OnSeePawn.AddDynamic(this, &AFPSAIGuard::seeingACharacter);//sightsense setup.
 	sensingComponent->OnHearNoise.AddDynamic(this, &AFPSAIGuard::hearingANoise);//hearsense setup
+
+	patrolTargetCollection.Empty();//don't know if it's necessary.
+
+
 }
 
 // Called when the game starts or when spawned
@@ -27,12 +39,16 @@ void AFPSAIGuard::BeginPlay()
 	Super::BeginPlay();
 	originalOrientation = this->GetActorRotation();
 	state = new AIGuardStateFactory(this);
+	this->moveTargetPointsToQueue();
+	this->patrol();
 
 }
 
 void AFPSAIGuard::seeingACharacter(APawn* character)
 {
 	state->reactToSpotting(this);
+	this->stopPatrolling();
+
 	if (character != nullptr)
 		DrawDebugSphere(GetWorld(), character->GetActorLocation(), 32.0f, 12, FColor::Yellow, false, 10.0f);//kind of visual log.
 	//next should be in an extracted function
@@ -58,7 +74,7 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 	distractionOrientation.Pitch = 0.0f;//only yaw is wanted
 	distractionOrientation.Roll = 0.0f;//only yaw is wanted
 
-
+	this->stopPatrolling();
 	this->SetActorRotation(distractionOrientation);
 
 	GetWorldTimerManager().ClearTimer(resetOrientationTimer);
@@ -69,6 +85,7 @@ void AFPSAIGuard::hearingANoise(APawn* noiseMaker, const FVector& noiseLocation,
 void AFPSAIGuard::resetOrientation()
 {
 	state->goingBackToOriginalPosition(this);
+	this->patrol();
 }
 
 void AFPSAIGuard::initialOrientation()
@@ -76,10 +93,44 @@ void AFPSAIGuard::initialOrientation()
 	this->SetActorRotation(originalOrientation);
 }
 
+void AFPSAIGuard::patrol()
+{
+	if (!patrolTargetCollection.IsEmpty())
+	{
+		patrolTargetCollection.Dequeue(currentPatrolTarget);
+		UAIBlueprintHelperLibrary::SimpleMoveToActor(this->GetController(), currentPatrolTarget);
+		patrolTargetCollection.Enqueue(currentPatrolTarget);
+	}
+}
+
+void AFPSAIGuard::patrolTickGoalCheck()
+{
+	if (currentPatrolTarget)
+	{
+		FVector distanceVector = this->GetActorLocation() - currentPatrolTarget->GetActorLocation();
+
+		float distanceToTarget = distanceVector.Size();
+
+		//UE_LOG(LogTemp, Log, TEXT("distance to goal is %lf"), distanceToTarget); //it's something like 100 when near.
+
+		int goalAcceptanceUnits = 110;
+
+		if (distanceToTarget < goalAcceptanceUnits)
+			this->patrol();
+	}
+}
+
+void AFPSAIGuard::stopPatrolling()
+{
+	AController* guardController = this->GetController();
+	if (guardController)
+		guardController->StopMovement();
+}
+
 // Called every frame
 void AFPSAIGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	this->patrolTickGoalCheck();
 }
 

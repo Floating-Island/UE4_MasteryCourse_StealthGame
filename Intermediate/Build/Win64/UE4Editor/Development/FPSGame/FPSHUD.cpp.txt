@@ -1,11 +1,11 @@
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Public\FPSHUD.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Public\FPSHUD.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/HUD.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/HUDHitBox.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/DebugTextInfo.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\DebugTextInfo.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\HUD.generated.h
-C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSHUD.generated.h
+C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame\FPSHUD.generated.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/Canvas.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Public\CanvasItem.h
 C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/Font.h

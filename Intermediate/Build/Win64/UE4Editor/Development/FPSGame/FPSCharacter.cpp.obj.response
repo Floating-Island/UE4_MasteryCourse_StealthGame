@@ -28,7 +28,7 @@
 /wd4838
 /we4668
 /I .
-/I C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Private
+/I "C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Private"
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\Engine
 /I Runtime
 /I Runtime\Engine\Classes
@@ -427,21 +427,21 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
-/I C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame
-/I C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source
-/I C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Public
-/I C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame
-/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\INCLUDE"
+/I "C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Inc\FPSGame"
+/I "C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source"
+/I "C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Public"
+/I "C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame"
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/FI"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h"
-/Yu"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h"
-/Fp"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Private\FPSCharacter.cpp"
-/FI"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h"
-/Fo"C:\temp\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\FPSCharacter.cpp.obj"
+/FI"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h"
+/Yu"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h"
+/Fp"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\FPSGameEditor\Development\Engine\SharedPCH.Engine.h.pch"
+"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Source\FPSGame\Private\FPSCharacter.cpp"
+/FI"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\Definitions.FPSGame.h"
+/Fo"C:\unreal projects\TomLooman\UE4_MasteryCourse_StealthGame\Intermediate\Build\Win64\UE4Editor\Development\FPSGame\FPSCharacter.cpp.obj"
 /TP
 /GR-
 /W4
