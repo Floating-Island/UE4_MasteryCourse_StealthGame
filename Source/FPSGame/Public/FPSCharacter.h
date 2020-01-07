@@ -64,6 +64,9 @@ protected:
 	/** Fires a projectile. */
 	void Fire();
 
+	UFUNCTION(Server, Reliable, WithValidation)//WithValidation is needed when using Server. Reliable means that it will surely get to the server at some point (something like TCP)
+	void serverFire();
+
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 

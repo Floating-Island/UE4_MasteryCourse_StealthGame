@@ -40,7 +40,17 @@ void AFPSProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPr
 	// Only add impulse and destroy projectile if we hit a physics
 	if ((OtherActor != NULL) && (OtherActor != this) && (OtherComp != NULL) && OtherComp->IsSimulatingPhysics())
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
-	MakeNoise(1.0f, Instigator);//instigator is the one responsible for damage deal. In this case is used to make noise.
+	
+	if (Role == ROLE_Authority)//if this is the server, then execute this:
+	{
+		/*
+			we want the server to tell the clients what to do,
+			 so the server makes the noise and replicates to clients.
+			 And the server destroys an object that clients will then destroy in their side.
+			 Clients only simulate what the server tells them to.
+		*/
+		MakeNoise(1.0f, Instigator);//instigator is the one responsible for damage deal. In this case is used to make noise.
 	//Instigator has a UNoiseEmitterComponent so it's nice to use.
-	Destroy();
+		Destroy();
+	}
 }
