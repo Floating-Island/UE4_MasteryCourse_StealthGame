@@ -29,6 +29,9 @@ AFPSProjectile::AFPSProjectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
+	//networking:
+	SetReplicates(true);//to replicate spawning. When someone spawns this actor, it will tell the server to replicate it to the rest of the clients. If not set in the spawner, only the server will be able to replicate to others.
+	SetReplicateMovement(true);//this actor moves, so it's necessary to replicate it's movement.
 }
 
 
