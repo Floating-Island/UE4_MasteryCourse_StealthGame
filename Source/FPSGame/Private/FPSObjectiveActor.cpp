@@ -21,6 +21,8 @@ AFPSObjectiveActor::AFPSObjectiveActor()
 	sphereComp->SetCollisionResponseToAllChannels(ECR_Ignore);
 	sphereComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);//only responds to a pawn when it overlaps
 	sphereComp->SetupAttachment(meshComp);
+
+	SetReplicates(true);//now the objective spawning will be replicated.
 }
 
 // Called when the game starts or when spawned
@@ -41,11 +43,20 @@ void AFPSObjectiveActor::NotifyActorBeginOverlap(AActor* OtherActor)
 
 	playEffect();
 
-	AFPSCharacter* thePlayer = Cast<AFPSCharacter>(OtherActor);
-	if (thePlayer)
+	serverDestroyOnOverlap(OtherActor);
+
+}
+
+void AFPSObjectiveActor::serverDestroyOnOverlap(AActor* OtherActor)
+{
+	if (Role == ROLE_Authority)
 	{
-		thePlayer->overlapsWithObjective(this);
-		Destroy();
+		AFPSCharacter* thePlayer = Cast<AFPSCharacter>(OtherActor);
+		if (thePlayer)
+		{
+			thePlayer->overlapsWithObjective(this);
+			Destroy();
+		}
 	}
 }
 
