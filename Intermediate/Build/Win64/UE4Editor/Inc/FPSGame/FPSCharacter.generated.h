@@ -13,8 +13,44 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define FPSGAME_FPSCharacter_generated_h
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_RPC_WRAPPERS
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_RPC_WRAPPERS \
+	virtual bool serverFire_Validate(); \
+	virtual void serverFire_Implementation(); \
+ \
+	DECLARE_FUNCTION(execserverFire) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		if (!P_THIS->serverFire_Validate()) \
+		{ \
+			RPC_ValidateFailed(TEXT("serverFire_Validate")); \
+			return; \
+		} \
+		P_THIS->serverFire_Implementation(); \
+		P_NATIVE_END; \
+	}
+
+
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	virtual bool serverFire_Validate(); \
+	virtual void serverFire_Implementation(); \
+ \
+	DECLARE_FUNCTION(execserverFire) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		if (!P_THIS->serverFire_Validate()) \
+		{ \
+			RPC_ValidateFailed(TEXT("serverFire_Validate")); \
+			return; \
+		} \
+		P_THIS->serverFire_Implementation(); \
+		P_NATIVE_END; \
+	}
+
+
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_EVENT_PARMS
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_CALLBACK_WRAPPERS
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAFPSCharacter(); \
@@ -64,12 +100,16 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AFPSCharacter); \
 	FORCEINLINE static uint32 __PPO__noiseEmissionComponent() { return STRUCT_OFFSET(AFPSCharacter, noiseEmissionComponent); }
 
 
-#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_19_PROLOG
+#define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_19_PROLOG \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_EVENT_PARMS
+
+
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_PRIVATE_PROPERTY_OFFSET \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_RPC_WRAPPERS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_CALLBACK_WRAPPERS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_INCLASS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_STANDARD_CONSTRUCTORS \
 public: \
@@ -81,6 +121,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_PRIVATE_PROPERTY_OFFSET \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_CALLBACK_WRAPPERS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_INCLASS_NO_PURE_DECLS \
 	UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSCharacter_h_22_ENHANCED_CONSTRUCTORS \
 private: \

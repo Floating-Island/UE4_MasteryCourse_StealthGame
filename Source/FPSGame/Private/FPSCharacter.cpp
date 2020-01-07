@@ -54,6 +54,32 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 }
 
+void AFPSCharacter::Tick(float deltaTime)
+{
+	Super::Tick(deltaTime);
+	
+	this->localPlayerLocationUpdate();
+}
+
+void AFPSCharacter::localPlayerLocationUpdate()
+{
+	if (!IsLocallyControlled())
+	{
+		FRotator playerRotation = (CameraComponent->RelativeRotation);
+
+		
+		//RemoteViewPitch is compressed, so it needs to be decompressed
+		float AvailablePitchDegrees = 360.0f;//available degrees in pitch
+		float AvaliableBits = 255.0f;//available amount in a uint8, the type of RemoteViewPitch
+
+		float decompressedRotation = RemoteViewPitch * AvailablePitchDegrees / AvaliableBits;
+
+		playerRotation.Pitch = decompressedRotation;
+
+		CameraComponent->SetRelativeRotation(playerRotation);
+	}
+}
+
 
 void AFPSCharacter::Fire()
 {
