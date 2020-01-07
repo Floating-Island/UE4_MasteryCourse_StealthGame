@@ -44,6 +44,13 @@ void AFPSAIGuard::BeginPlay()
 
 }
 
+// Called every frame
+void AFPSAIGuard::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	this->patrolTickGoalCheck();
+}
+
 void AFPSAIGuard::seeingACharacter(APawn* character)
 {
 	state->reactToSpotting(this);
@@ -125,12 +132,5 @@ void AFPSAIGuard::stopPatrolling()
 	AController* guardController = this->GetController();
 	if (guardController)
 		guardController->StopMovement();
-}
-
-// Called every frame
-void AFPSAIGuard::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	this->patrolTickGoalCheck();
 }
 
