@@ -101,6 +101,51 @@ void AFPSAIGuard::initialOrientation()
 	this->SetActorRotation(originalOrientation);
 }
 
+void AFPSAIGuard::idleState()
+{
+	this->serverIdleState();
+}
+
+void AFPSAIGuard::suspiciousState()
+{
+	this->serverSuspiciousState();
+}
+
+void AFPSAIGuard::alertedState()
+{
+	this->serverAlertedState();
+}
+
+void AFPSAIGuard::serverSuspiciousState_Implementation()
+{
+	this->onSuspiciousStateEvent();
+}
+
+bool AFPSAIGuard::serverSuspiciousState_Validate()
+{
+	return true;
+}
+
+void AFPSAIGuard::serverAlertedState_Implementation()
+{
+	this->onAlertedStateEvent();
+}
+
+bool AFPSAIGuard::serverAlertedState_Validate()
+{
+	return true;
+}
+
+void AFPSAIGuard::serverIdleState_Implementation()
+{
+	this->onIdleStateEvent();
+}
+
+bool AFPSAIGuard::serverIdleState_Validate()
+{
+	return true;
+}
+
 void AFPSAIGuard::patrol()
 {
 	if (!patrolTargetCollection.IsEmpty())

@@ -11,7 +11,7 @@ AIGuardAlertedState::AIGuardAlertedState()
 AIGuardState* AIGuardAlertedState::singletonInstance(AFPSAIGuard* guard)
 {
 	static AIGuardAlertedState initializedInstance;
-	guard->onAlertedStateEvent();
+	guard->alertedState();
 	return &initializedInstance;
 }
 
