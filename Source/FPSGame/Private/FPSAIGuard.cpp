@@ -30,7 +30,8 @@ AFPSAIGuard::AFPSAIGuard()
 
 	patrolTargetCollection.Empty();//don't know if it's necessary.
 
-
+	SetReplicates(true);//to replicate spawning. When someone spawns this actor, it will tell the server to replicate it to the rest of the clients. If not set in the spawner, only the server will be able to replicate to others.
+	SetReplicateMovement(true);//this actor moves, so it's necessary to replicate it's movement.
 }
 
 // Called when the game starts or when spawned
@@ -42,6 +43,13 @@ void AFPSAIGuard::BeginPlay()
 	this->moveTargetPointsToQueue();
 	this->patrol();
 
+}
+
+// Called every frame
+void AFPSAIGuard::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	this->patrolTickGoalCheck();
 }
 
 void AFPSAIGuard::seeingACharacter(APawn* character)
@@ -93,6 +101,51 @@ void AFPSAIGuard::initialOrientation()
 	this->SetActorRotation(originalOrientation);
 }
 
+void AFPSAIGuard::idleState()
+{
+	this->serverIdleState();
+}
+
+void AFPSAIGuard::suspiciousState()
+{
+	this->serverSuspiciousState();
+}
+
+void AFPSAIGuard::alertedState()
+{
+	this->serverAlertedState();
+}
+
+void AFPSAIGuard::serverSuspiciousState_Implementation()
+{
+	this->onSuspiciousStateEvent();
+}
+
+bool AFPSAIGuard::serverSuspiciousState_Validate()
+{
+	return true;
+}
+
+void AFPSAIGuard::serverAlertedState_Implementation()
+{
+	this->onAlertedStateEvent();
+}
+
+bool AFPSAIGuard::serverAlertedState_Validate()
+{
+	return true;
+}
+
+void AFPSAIGuard::serverIdleState_Implementation()
+{
+	this->onIdleStateEvent();
+}
+
+bool AFPSAIGuard::serverIdleState_Validate()
+{
+	return true;
+}
+
 void AFPSAIGuard::patrol()
 {
 	if (!patrolTargetCollection.IsEmpty())
@@ -125,12 +178,5 @@ void AFPSAIGuard::stopPatrolling()
 	AController* guardController = this->GetController();
 	if (guardController)
 		guardController->StopMovement();
-}
-
-// Called every frame
-void AFPSAIGuard::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-	this->patrolTickGoalCheck();
 }
 

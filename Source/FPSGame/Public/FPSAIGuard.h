@@ -61,10 +61,32 @@ public:
 
 	void initialOrientation();
 
+	/** Idle state. */
+	void idleState();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void serverIdleState();
+	
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void onIdleStateEvent();//used by state
+		void onIdleStateEvent();
+
+	
+	/** Idle state. */
+	void suspiciousState();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void serverSuspiciousState();
+	
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void onSuspiciousStateEvent();//used by state
+		void onSuspiciousStateEvent();
+
+	
+	/** Alerted state. */
+	void alertedState();
+
+	UFUNCTION(Server, Reliable, WithValidation)
+		void serverAlertedState();
+	
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI Guard State")
-		void onAlertedStateEvent();//used by state
+		void onAlertedStateEvent();
 };
