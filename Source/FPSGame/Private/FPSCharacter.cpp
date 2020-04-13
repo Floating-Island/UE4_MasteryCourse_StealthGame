@@ -54,24 +54,48 @@ void AFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 }
 
+void AFPSCharacter::Tick(float deltaTime)
+{
+	Super::Tick(deltaTime);
+	
+	this->localPlayerLocationUpdate();
+}
+
+void AFPSCharacter::localPlayerLocationUpdate()
+{
+	if (!IsLocallyControlled())
+	{
+		FRotator playerRotation = (CameraComponent->RelativeRotation);
+
+		
+		//RemoteViewPitch is compressed, so it needs to be decompressed
+		float AvailablePitchDegrees = 360.0f;//available degrees in pitch
+		float AvaliableBits = 255.0f;//available amount in a uint8, the type of RemoteViewPitch
+
+		float decompressedRotation = RemoteViewPitch * AvailablePitchDegrees / AvaliableBits;
+
+		playerRotation.Pitch = decompressedRotation;
+
+		CameraComponent->SetRelativeRotation(playerRotation);
+	}
+}
+
 
 void AFPSCharacter::Fire()
 {
+	this->serverFire();
+	/*
+		if it's a client, the client will make a request to the server to run this function.
+		if the server calls it, it will execute immediately.
+		serverFire only runs in the server. That way, every fire will be replicated on all the clients.
+		the clients requests the server to execute that function, so when the server executes it, it will be
+		replicated on all the connected clients.
+		This is because we made the projectile able to be replicated.
+	*/
 	// try and fire a projectile
-	if (ProjectileClass)
-	{
-		FVector MuzzleLocation = GunMeshComponent->GetSocketLocation("Muzzle");
-		FRotator MuzzleRotation = GunMeshComponent->GetSocketRotation("Muzzle");
 
-		//Set Spawn Collision Handling Override
-		FActorSpawnParameters ActorSpawnParams;
-		ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
-		ActorSpawnParams.Instigator = this;// this character is the one who spawned the projectile.
 
-		// spawn the projectile at the muzzle
-		GetWorld()->SpawnActor<AFPSProjectile>(ProjectileClass, MuzzleLocation, MuzzleRotation, ActorSpawnParams);
-	}
-
+	//this will be played only locally. In the coop game we're going to change them.
 	// try and play the sound if specified
 	if (FireSound)
 	{
@@ -90,6 +114,30 @@ void AFPSCharacter::Fire()
 	}
 }
 
+//Server functions for AFPSCharacter::severFire()
+//FPSCharacter.generated.h will handle headers for this functions.
+//when we want to use serverFire, we use it normally.
+void AFPSCharacter::serverFire_Implementation()//server implementation of AFPSCharacter::severFire()
+{
+	if (ProjectileClass)
+	{
+		FVector MuzzleLocation = GunMeshComponent->GetSocketLocation("Muzzle");
+		FRotator MuzzleRotation = GunMeshComponent->GetSocketRotation("Muzzle");
+
+		//Set Spawn Collision Handling Override
+		FActorSpawnParameters ActorSpawnParams;
+		ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+		ActorSpawnParams.Instigator = this;// this character is the one who spawned the projectile.
+
+		// spawn the projectile at the muzzle
+		GetWorld()->SpawnActor<AFPSProjectile>(ProjectileClass, MuzzleLocation, MuzzleRotation, ActorSpawnParams);
+	}
+}
+
+bool AFPSCharacter::serverFire_Validate()//WithValidation
+{
+	return true;//until real checking is needed.
+}//used in server side for sanity checks (like cheating or other things)
 
 void AFPSCharacter::MoveForward(float Value)
 {

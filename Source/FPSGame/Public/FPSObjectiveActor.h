@@ -35,4 +35,6 @@ protected:
 public:	
 	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
+	void serverDestroyOnOverlap(AActor* OtherActor);
+
 };
