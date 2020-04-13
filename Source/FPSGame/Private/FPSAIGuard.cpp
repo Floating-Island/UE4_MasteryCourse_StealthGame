@@ -93,7 +93,7 @@ void AFPSAIGuard::initialOrientation()
 	this->SetActorRotation(originalOrientation);
 }
 
-void AFPSAIGuard::patrol()
+void AFPSAIGuard::patrol()//uses a queue
 {
 	if (!patrolTargetCollection.IsEmpty())
 	{
