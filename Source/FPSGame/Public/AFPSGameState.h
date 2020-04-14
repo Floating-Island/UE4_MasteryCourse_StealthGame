@@ -19,5 +19,5 @@ class FPSGAME_API AAFPSGameState : public AGameStateBase
 public:
 
 	UFUNCTION(NetMulticast, Reliable)
-		void multicastOnMissionComplete(APawn* player, bool missionSucceded);
+		void multicastOnMissionComplete(APawn* player, bool bMissionSucceded);
 };
