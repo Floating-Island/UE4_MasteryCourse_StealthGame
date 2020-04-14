@@ -18,8 +18,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Spectating")//editable in the editor
 		TSubclassOf<AActor> SpectatorViewpointClass;//spectator class
 
-	StateFactory *gameState;
-
 public:
 
 	AFPSGameMode();

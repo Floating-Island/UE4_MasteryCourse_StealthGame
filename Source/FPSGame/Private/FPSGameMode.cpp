@@ -18,8 +18,6 @@ AFPSGameMode::AFPSGameMode()
 	// use our custom HUD class
 	HUDClass = AFPSHUD::StaticClass();
 
-	gameState = new StateFactory();
-
 	GameStateClass = AAFPSGameState::StaticClass();
 }
 
