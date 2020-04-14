@@ -45,7 +45,6 @@ void AFPSExtractionZone::handleOverlap(UPrimitiveComponent* overlappedComponent,
 		AFPSGameMode* gameMode = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());//GetWorld()->GetAuthGameMode() will return nullptr on a client
 		if (gameMode)
 		{
-			gameMode->success();
 			gameMode->missionEnded(player, player->isCarryingObjective);
 		}
 	}

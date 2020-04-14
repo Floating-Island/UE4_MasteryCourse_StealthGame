@@ -7,7 +7,7 @@ private:
 	SingletonStateFailure() {};
 public:
 	static GameModeState* singletonInstance();
-	void missionResult(AFPSGameMode* gameMode, APawn* player) { gameMode->onMissionFailure(player); };
+	void missionResult(AFPSGameMode* gameMode, APawn* player) { };
 	~SingletonStateFailure() {};
 };
 

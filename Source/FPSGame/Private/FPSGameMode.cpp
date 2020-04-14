@@ -23,7 +23,7 @@ AFPSGameMode::AFPSGameMode()
 	GameStateClass = AAFPSGameState::StaticClass();
 }
 
-void AFPSGameMode::missionEnded(APawn* player, bool missionSucceded)
+void AFPSGameMode::missionEnded(APawn* player, bool bMissionSucceded)
 {
 	if (player)
 	{
@@ -52,19 +52,9 @@ void AFPSGameMode::missionEnded(APawn* player, bool missionSucceded)
 	AAFPSGameState* fpsGameState = GetGameState<AAFPSGameState>();
 	if(fpsGameState)
 	{
-		fpsGameState->multicastOnMissionComplete(player, missionSucceded);
+		fpsGameState->multicastOnMissionComplete(player, bMissionSucceded);
 	}
 
 	
-	this->gameState->missionResult(this, player);
-}
-
-void AFPSGameMode::failure()
-{
-	gameState->failure();
-}
-
-void AFPSGameMode::success()
-{
-	gameState->success();
+	onMissionCompletion(player, bMissionSucceded);
 }
