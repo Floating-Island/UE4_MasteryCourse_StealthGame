@@ -7,7 +7,6 @@
 #include "Kismet/GameplayStatics.h"
 
 #include "AFPSGameState.h"
-#include "StateFactory.h"
 
 AFPSGameMode::AFPSGameMode()
 {
