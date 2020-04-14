@@ -53,7 +53,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay")
 		UAnimSequence* FireAnimation;
 
-	UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
+	UPROPERTY(Replicated, BlueprintReadOnly, Category = "Gameplay")//replicates objective to clients
 		bool isCarryingObjective = false;
 
 	void overlapsWithObjective(AFPSObjectiveActor* theObjective);

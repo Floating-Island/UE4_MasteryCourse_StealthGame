@@ -7,6 +7,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components\PawnNoiseEmitterComponent.h"
+#include "Net/UnrealNetwork.h"
 
 
 void AFPSCharacter::overlapsWithObjective(AFPSObjectiveActor* theObjective)
@@ -156,4 +157,12 @@ void AFPSCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(GetActorRightVector(), Value);
 	}
+}
+
+void AFPSCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+	DOREPLIFETIME(AFPSCharacter, isCarryingObjective);
+
+	//DOREPLIFETIME_CONDITION(AFPSCharacter, isCarryingObjective, COND_OwnerOnly);//only the one that carries the objective will use it. Saves bandwidth
 }
