@@ -17,5 +17,5 @@ class FPSGAME_API AFPSPlayerController : public APlayerController
 public:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Player Controller")//makes it available to use as a Blueprint event.
-		void onMissionCompletion(APawn* pawn, bool bMissionSucceded);
+		void onMissionCompletion(APawn* pawnPlayer, bool bMissionSucceded);
 };

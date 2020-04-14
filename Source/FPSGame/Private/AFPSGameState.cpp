@@ -6,10 +6,10 @@
 
 void AAFPSGameState::multicastOnMissionComplete_Implementation(APawn* player, bool bMissionSucceded)
 {
-	for(FConstPlayerController iterator = GetWorld()->GetPlayerControllerIterator; iterator; iterator++)
+	for(FConstPlayerControllerIterator iterator = GetWorld()->GetPlayerControllerIterator(); iterator; iterator++)
 	{
 		AFPSPlayerController* playerController = Cast<AFPSPlayerController>(iterator->Get());
-		if (playerController&& playerController->IsLocalController())
+		if (playerController && playerController->IsLocalController())
 		{
 			playerController->onMissionCompletion(player, bMissionSucceded);
 
