@@ -23,7 +23,7 @@ protected:
 public:
 
 	AFPSGameMode();
-	void missionEnded(APawn* pawn);
+	void missionEnded(APawn* pawn, bool missionSucceded);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Game Mode")//makes it available to use as a Blueprint event.
 		void onMissionComplete(APawn* pawn);

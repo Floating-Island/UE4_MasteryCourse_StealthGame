@@ -6,6 +6,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
 
+#include "AFPSGameState.h"
 #include "StateFactory.h"
 
 AFPSGameMode::AFPSGameMode()
@@ -18,13 +19,14 @@ AFPSGameMode::AFPSGameMode()
 	HUDClass = AFPSHUD::StaticClass();
 
 	gameState = new StateFactory();
+
+	GameStateClass = AAFPSGameState::StaticClass();
 }
 
-void AFPSGameMode::missionEnded(APawn* player)
+void AFPSGameMode::missionEnded(APawn* player, bool missionSucceded)
 {
 	if (player)
 	{
-		player->DisableInput(nullptr);
 
 		if (SpectatorViewpointClass)
 		{
@@ -45,6 +47,15 @@ void AFPSGameMode::missionEnded(APawn* player)
 			UE_LOG(LogTemp, Warning, TEXT("SpectatorViewpointClass is nullptr. Update GameMode class. Unable to change view target."));
 
 	}
+
+
+	AAFPSGameState* fpsGameState = GetGameState<AAFPSGameState>();
+	if(fpsGameState)
+	{
+		fpsGameState->multicastOnMissionComplete(player, missionSucceded);
+	}
+
+	
 	this->gameState->missionResult(this, player);
 }
 
