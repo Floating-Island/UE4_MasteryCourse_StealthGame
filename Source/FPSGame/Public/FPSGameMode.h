@@ -18,20 +18,13 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Spectating")//editable in the editor
 		TSubclassOf<AActor> SpectatorViewpointClass;//spectator class
 
-	StateFactory *gameState;
-
 public:
 
 	AFPSGameMode();
-	void missionEnded(APawn* pawn);
+	void missionEnded(APawn* pawn, bool bMissionSucceded);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Game Mode")//makes it available to use as a Blueprint event.
-		void onMissionComplete(APawn* pawn);
-	UFUNCTION(BlueprintImplementableEvent, Category = "Game Mode")//makes it available to use as a Blueprint event.
-		void onMissionFailure(APawn* pawn);
-
-	void failure();
-	void success();
+		void onMissionCompletion(APawn* pawn, bool bMissionSucceded);
 };
 
 

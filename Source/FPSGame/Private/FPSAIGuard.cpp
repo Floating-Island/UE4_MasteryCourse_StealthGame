@@ -63,8 +63,8 @@ void AFPSAIGuard::seeingACharacter(APawn* character)
 	AFPSGameMode* gameMode = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());//GetWorld()->GetAuthGameMode() will return nullptr on a client
 	if (gameMode)
 	{
-		gameMode->failure();
-		gameMode->missionEnded(character);
+		bool missionSucceded = false;
+		gameMode->missionEnded(character, missionSucceded);
 	}
 		
 }

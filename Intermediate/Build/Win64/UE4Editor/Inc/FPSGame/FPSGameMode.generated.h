@@ -17,13 +17,10 @@ class APawn;
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_14_RPC_WRAPPERS
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_14_RPC_WRAPPERS_NO_PURE_DECLS
 #define UE4_MasteryCourse_StealthGame_Source_FPSGame_Public_FPSGameMode_h_14_EVENT_PARMS \
-	struct FPSGameMode_eventonMissionComplete_Parms \
+	struct FPSGameMode_eventonMissionCompletion_Parms \
 	{ \
 		APawn* pawn; \
-	}; \
-	struct FPSGameMode_eventonMissionFailure_Parms \
-	{ \
-		APawn* pawn; \
+		bool bMissionSucceded; \
 	};
 
 

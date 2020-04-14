@@ -6,7 +6,7 @@
 #include "UObject/ConstructorHelpers.h"
 #include "Kismet/GameplayStatics.h"
 
-#include "StateFactory.h"
+#include "AFPSGameState.h"
 
 AFPSGameMode::AFPSGameMode()
 {
@@ -17,15 +17,13 @@ AFPSGameMode::AFPSGameMode()
 	// use our custom HUD class
 	HUDClass = AFPSHUD::StaticClass();
 
-	gameState = new StateFactory();
+	GameStateClass = AAFPSGameState::StaticClass();
 }
 
-void AFPSGameMode::missionEnded(APawn* player)
+void AFPSGameMode::missionEnded(APawn* player, bool bMissionSucceded)
 {
 	if (player)
 	{
-		player->DisableInput(nullptr);
-
 		if (SpectatorViewpointClass)
 		{
 			TArray<AActor*> actorsInGame;
@@ -36,24 +34,25 @@ void AFPSGameMode::missionEnded(APawn* player)
 			{
 				spectator = actorsInGame[0];
 
-				APlayerController* missionPlayerController = Cast<APlayerController>(player->GetController());//get the player controller
-				if (missionPlayerController)
-					missionPlayerController->SetViewTargetWithBlend(spectator, 0.5f, EViewTargetBlendFunction::VTBlend_Cubic);//assign the view target to another actor.
+				for (FConstPlayerControllerIterator iterator = GetWorld()->GetPlayerControllerIterator(); iterator; iterator++)//the server changes every player's camera
+				{
+					APlayerController* missionPlayerController = iterator->Get();//get the player controller
+					if (missionPlayerController)
+					{
+						missionPlayerController->SetViewTargetWithBlend(spectator, 0.5f, EViewTargetBlendFunction::VTBlend_Cubic);//assign the view target to another actor.
+					}
+				}
 			}
 		}
 		else
+		{
 			UE_LOG(LogTemp, Warning, TEXT("SpectatorViewpointClass is nullptr. Update GameMode class. Unable to change view target."));
-
+		}
 	}
-	this->gameState->missionResult(this, player);
-}
-
-void AFPSGameMode::failure()
-{
-	gameState->failure();
-}
-
-void AFPSGameMode::success()
-{
-	gameState->success();
+	AAFPSGameState* fpsGameState = GetGameState<AAFPSGameState>();
+	if(fpsGameState)
+	{
+		fpsGameState->multicastOnMissionComplete(player, bMissionSucceded);
+	}
+	onMissionCompletion(player, bMissionSucceded);
 }
